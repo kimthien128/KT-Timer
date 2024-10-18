@@ -1,0 +1,43 @@
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\bin\Debug\ComponentFactory.Krypton.Toolkit.dll
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\bin\Debug\ComponentFactory.Krypton.Toolkit.pdb
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\obj\Debug\KT-Timer-App.csproj.AssemblyReference.cache
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\obj\Debug\KT_Timer_App.Properties.Resources.resources
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\obj\Debug\KT-Timer-App.csproj.GenerateResource.cache
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\obj\Debug\KT-Timer-App.csproj.CoreCompileInputs.cache
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\obj\Debug\KT-Timer.4E049AF3.Up2Date
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\bin\Debug\ComponentFactory.Krypton.Ribbon.dll
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\bin\Debug\ComponentFactory.Krypton.Ribbon.pdb
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\bin\Debug\ComponentFactory.Krypton.Navigator.dll
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\bin\Debug\ComponentFactory.Krypton.Navigator.pdb
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\bin\Debug\ComponentFactory.Krypton.Docking.dll
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\bin\Debug\ComponentFactory.Krypton.Workspace.dll
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\bin\Debug\ComponentFactory.Krypton.Docking.pdb
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\bin\Debug\ComponentFactory.Krypton.Workspace.pdb
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\obj\Debug\KT_Timer_App.fAddStep.resources
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\obj\Debug\KT_Timer_App.fDetailTask.resources
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\obj\Debug\KT_Timer_App.fMain.resources
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\bin\Debug\System.Buffers.dll
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\bin\Debug\System.Memory.dll
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\bin\Debug\System.ValueTuple.dll
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\bin\Debug\System.Buffers.xml
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\bin\Debug\System.Memory.xml
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\bin\Debug\System.ValueTuple.xml
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\bin\Debug\Newtonsoft.Json.dll
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\bin\Debug\Newtonsoft.Json.xml
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\bin\Debug\KT Timer App.exe.config
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\bin\Debug\KT Timer App.exe
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\bin\Debug\KT Timer App.pdb
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\obj\Debug\KT Timer App.exe
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\obj\Debug\KT Timer App.pdb
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\obj\Debug\Interop.Shell32.dll
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\obj\Debug\KT-Timer-App.csproj.ResolveComReference.cache
