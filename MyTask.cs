@@ -50,7 +50,7 @@ namespace KT_Timer_App
         public KryptonPanel CreatePanel()
         {
             KryptonPanel childPanel = new KryptonPanel();
-            childPanel.Width = 623;
+            childPanel.Width = 723;
             childPanel.Height = 74;
             childPanel.StateNormal.Color1 = Color.FromArgb(242, 242, 247);
             childPanel.StateNormal.Color2 = Color.FromArgb(209, 211, 217);
@@ -228,10 +228,38 @@ namespace KT_Timer_App
             panelContainRemainingBottom.Controls.Add(nudWaitingTime);
 
             //----------------------------------------------------
-            KryptonPanel panelContainButton = new KryptonPanel();
-            panelContainButton.Dock = DockStyle.Right;
-            panelContainButton.Width = 80;
-            panelContainButton.StateNormal.Color1 = Color.Transparent;
+            KryptonPanel panelContainButton2 = new KryptonPanel();
+            panelContainButton2.Dock = DockStyle.Right;
+            panelContainButton2.Width = 80;
+            panelContainButton2.StateNormal.Color1 = Color.Transparent;
+
+            //
+            KryptonButton btnRunNow = new KryptonButton();
+            btnRunNow.Text = "Run now";
+            btnRunNow.Dock = DockStyle.Top;
+            btnRunNow.Height = 32;
+            btnRunNow.Click += new EventHandler(btnRunNow_Click);
+            btnRunNow.PaletteMode = PaletteMode.Office2007Blue;
+            btnRunNow.Enabled = false;
+            if(Steps != null ) btnRunNow.Enabled = true;
+
+            //
+            KryptonButton btnReEnable = new KryptonButton();
+            btnReEnable.Text = "Re-Enable";
+            btnReEnable.Dock = DockStyle.Bottom;
+            btnReEnable.Height = 32;
+            btnReEnable.Click += new EventHandler(btnReEnable_Click);
+            btnReEnable.PaletteMode = PaletteMode.Office2007Blue;
+            btnReEnable.Enabled = false;
+
+            panelContainButton2.Controls.Add(btnRunNow);
+            panelContainButton2.Controls.Add(btnReEnable);
+
+            //----------------------------------------------------
+            KryptonPanel panelContainButton1 = new KryptonPanel();
+            panelContainButton1.Dock = DockStyle.Right;
+            panelContainButton1.Width = 80;
+            panelContainButton1.StateNormal.Color1 = Color.Transparent;
             
             //
             KryptonButton btnAddStep = new KryptonButton();
@@ -249,8 +277,8 @@ namespace KT_Timer_App
             btnDeleteTask.Click += new EventHandler(btnDeleteTask_Click);
             btnDeleteTask.PaletteMode = PaletteMode.Office2007Blue;
 
-            panelContainButton.Controls.Add(btnAddStep);
-            panelContainButton.Controls.Add(btnDeleteTask);
+            panelContainButton1.Controls.Add(btnAddStep);
+            panelContainButton1.Controls.Add(btnDeleteTask);
 
             //Disable khi complete ----------------------------------------------------
             if (IsComplete)
@@ -261,7 +289,8 @@ namespace KT_Timer_App
                 panelContainDateTime.Enabled = false;
                 panelContainRemaining.Enabled = false;
                 btnAddStep.Enabled = false;
-                timer.Stop();
+                //timer.Stop();
+                btnReEnable.Enabled = true;
             }
 
 
@@ -270,10 +299,69 @@ namespace KT_Timer_App
             childPanel.Controls.Add(panelContainDateTime);
             childPanel.Controls.Add(panelContainStep);
             childPanel.Controls.Add(panelContainRemaining);
-            childPanel.Controls.Add(panelContainButton);
+            childPanel.Controls.Add(panelContainButton2);
+            childPanel.Controls.Add(panelContainButton1);
             
 
             return childPanel;
+        }
+
+        private void btnReEnable_Click(object sender, EventArgs e)
+        {
+            IsComplete = false;
+            foreach (Step s in module.Tasks[ID].Steps)
+            {
+                s.IsComplete = false;
+            }
+
+            // Lấy thời gian hiện tại
+            DateTime today = DateTime.Today;
+
+            // Tạo DateTime với ngày hôm nay và thời gian gốc của inputDate
+            DateTime newDate = new DateTime(today.Year, today.Month, today.Day, StartTime.Hour, StartTime.Minute, StartTime.Second);
+
+            // Kiểm tra nếu newDate vẫn nhỏ hơn hiện tại (nghĩa là hôm nay đã trôi qua giờ đó)
+            if (newDate < DateTime.Now)
+            {
+                // thì chuyển sang ngày mai
+                StartTime = newDate.AddDays(1);
+            }
+            else
+            {
+                StartTime = newDate;
+            }
+
+            //thay đổi thời gian cho các step con
+            SetStartTimeForChildStep();
+
+            //thay đổi xong thì lưu data
+            dataHandle.GhiDuLieu(module.Tasks);
+
+            fMain fMain = fMain.Instance();
+            fMain.UpdateUI();
+        }
+
+        private void btnRunNow_Click(object sender, EventArgs e)
+        {
+            // kích hoạt lại
+            IsComplete = false;
+
+            //set lại trạng thái isComplete cho các step con = false
+            SetIsCompleteForChildStep();
+
+            StartTime = DateTime.Now.AddSeconds(1);
+
+            //set lại minStartDateTime
+            module.SetMinStartDateTime();
+            
+            //thay đổi thời gian cho các step con
+            SetStartTimeForChildStep();
+
+            //thay đổi xong thì lưu data
+            dataHandle.GhiDuLieu(module.Tasks);
+
+            fMain fMain = fMain.Instance();
+            fMain.UpdateUI();
         }
 
         private void CbRepeat_CheckedChanged(object sender, EventArgs e)
@@ -290,17 +378,13 @@ namespace KT_Timer_App
             module.log = $"{DateTime.Now} | Task: {ID} | Set Time Interval = {nudWaitingTime.Value}";
 
             //thay đổi timeStart của từng step con
-            if (Steps != null && Steps.Count > 0)
-            for(int i = 0; i < Steps.Count; i++)
-            {
-                    Steps[i].StartTime = StartTime.AddSeconds(WaitingTime * i);
-            }
+            SetStartTimeForChildStep();
 
             //thay đổi xong thì lưu data
             dataHandle.GhiDuLieu(module.Tasks);
         }
 
-        public void timer_Tick(object sender, EventArgs e)
+        private void timer_Tick(object sender, EventArgs e)
         {
             WaitingTime = (int)nudWaitingTime.Value;
 
@@ -309,16 +393,43 @@ namespace KT_Timer_App
             else
             {
                 //nên cho run task ở đây
-                
 
-                //sau khi run xong mới check repeat
-                if (Repeat)
-                    StartTime = StartTime.AddDays(1);
-                else
-                    lbRemaining.Text = "     Time out";
+
+                //check repeat
+                if (IsComplete)
+                {
+                    //sau khi run xong mới check repeat
+                    if (Repeat)
+                    {
+                        StartTime = StartTime.AddDays(1);
+
+                        // kích hoạt lại
+                        IsComplete = false;
+
+                        //set lại trạng thái isComplete cho các step con = false
+                        SetIsCompleteForChildStep();
+
+                        //set lại minStartDateTime
+                        module.SetMinStartDateTime();
+
+                        //thay đổi thời gian cho các step con
+                        SetStartTimeForChildStep();
+
+                        //thay đổi xong thì lưu data
+                        dataHandle.GhiDuLieu(module.Tasks);
+
+                        fMain fMain = fMain.Instance();
+                        fMain.UpdateUI();
+                    }
+                    else
+                    {
+                        lbRemaining.Text = "     Time out";
+                        timer.Stop();
+                    }
+                }
             }
         }
-        public void btnAddStep_Click(object sender, EventArgs e)
+        private void btnAddStep_Click(object sender, EventArgs e)
         {
             module.taskIDCurrent = ID;
             fAddStep f = fAddStep.Instance();
@@ -327,7 +438,7 @@ namespace KT_Timer_App
             fMain fMain = fMain.Instance();
             fMain.UpdateUI();
         }
-        public void btnDeleteTask_Click(object sender, EventArgs e)
+        private void btnDeleteTask_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("Do you want to delete the task?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if(dr == DialogResult.OK)
@@ -340,7 +451,7 @@ namespace KT_Timer_App
             //xóa task xong thì lưu data
             dataHandle.GhiDuLieu(module.Tasks);
         }
-        public void btnViewDetailStep_Click(object sender, EventArgs e)
+        private void btnViewDetailStep_Click(object sender, EventArgs e)
         {
             module.taskIDCurrent = ID;
             fDetailTask f = fDetailTask.Instance();
@@ -350,5 +461,26 @@ namespace KT_Timer_App
             fMain.UpdateUI();
         }
         
+        private void SetStartTimeForChildStep()
+        {
+            if (Steps != null && Steps.Count > 0)
+            {
+                for (int i = 0; i < Steps.Count; i++)
+                {
+                    Steps[i].StartTime = StartTime.AddSeconds(WaitingTime * i);
+                }
+            }
+        }
+
+        private void SetIsCompleteForChildStep()
+        {
+            if (Steps != null && Steps.Count > 0)
+            {
+                foreach (Step s in module.Tasks[ID].Steps)
+                {
+                    s.IsComplete = false;
+                }
+            }
+        }
     }
 }

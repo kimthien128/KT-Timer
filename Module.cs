@@ -38,5 +38,18 @@ namespace KT_Timer_App
                 lastLog = log;
             }
         }
+
+        public void SetMinStartDateTime()
+        {
+            //set lại minStartDateTime mới
+            minStartDateTime = DateTime.MaxValue;
+            for (int i = 0; i < Tasks.Count; i++)
+            {
+                if (Tasks[i].StartTime <= minStartDateTime && !Tasks[i].IsComplete)
+                {
+                    minStartDateTime = Tasks[i].StartTime;
+                }
+            }
+        }
     }
 }

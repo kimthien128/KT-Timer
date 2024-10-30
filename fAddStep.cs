@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using KAutoHelper;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace KT_Timer_App
 {
@@ -17,7 +19,8 @@ namespace KT_Timer_App
     {
         private Module module = Module.Instance();
         private List<MyTask> tasks = Module.Instance().Tasks;
-        
+        private DataHandle dataHandle = DataHandle.Instance();
+
         private int parentID;
         private int stepID;
         private string nameStep;
@@ -50,7 +53,9 @@ namespace KT_Timer_App
             txbLinkCondition.Enabled = false;
             btnBrowserCondition.Enabled = false;
             rbtnOpenApp.Checked = true;
+            rbtnShortcutKey.Checked = true;
             rbtnEnterCommand.Checked = true;
+
 
             lbParentTaskID.Text = "Task " + parentID.ToString();
             lbTaskName.Text = Module.Instance().Tasks[parentID].Name;
@@ -110,13 +115,69 @@ namespace KT_Timer_App
                 }
                 else
                 {
+                    //kiểm tra chọn click chuột như thế nào
+                    EMouseKey eClick = EMouseKey.LEFT;
+                    string typeClick = "Left";
+
+                    if (cbRightClick.Checked)
+                    {
+                        if (cbDoubleClick.Checked)
+                        {
+                            eClick = EMouseKey.DOUBLE_RIGHT;
+                            typeClick = "Double Right";
+                        }    
+                        else
+                        {
+                            eClick = EMouseKey.RIGHT;
+                            typeClick = "Right";
+                        }    
+                    }
+                    else
+                    {
+                        if (cbDoubleClick.Checked)
+                        {
+                            eClick = EMouseKey.DOUBLE_LEFT;
+                            typeClick = "Double Left";
+                        }    
+                    }
+
                     actionType = new ActionType
                     {
                         Type = ActionType.TypeAction.ClickButton,
                         ButtonImage = txbLinkButtonImage.Text,
+                        eMouseKey = eClick,
                         TaskID = parentID
                     };
-                    contentAction = "Click on button \"" + txbLinkButtonImage.Text + "\"";
+
+                    contentAction = typeClick + " Click on button \"" + txbLinkButtonImage.Text + "\"";
+                }
+            }
+            else if (rbtnUseKeyboard.Checked)
+            {
+                //cần làm rõ nội dung chổ này thêm nữa, có thể tạo 1 actiontype ban đầu khi khởi tọa step, chỉ cần truyền tham số trong mỗi if
+                if(rbtnShortcutKey.Checked)
+                {
+                    
+                    actionType = new ActionType
+                    {
+                        Type = ActionType.TypeAction.UseKeyboard,
+                        KeyboardType = ActionType.TypeKeyboard.Shortcut,
+                        keyCodes = new KeyCode[] { KeyCode.LWIN, KeyCode.KEY_D },
+                        TaskID = parentID
+                    };
+                    contentAction = "Shortcut Key\"" + "KeyCode.LWIN, KeyCode.KEY_D" + "\"";
+
+                }
+                else if (rbtnText.Checked)
+                {
+                    actionType = new ActionType
+                    {
+                        Type = ActionType.TypeAction.UseKeyboard,
+                        KeyboardType = ActionType.TypeKeyboard.String,
+                        Text = txbText.Text,
+                        TaskID = parentID
+                    };
+                    contentAction = "Send Text \"" + txbText.Text + "\"";
                 }
             }
             else if(rbtnExecuteCommand.Checked)
@@ -144,7 +205,7 @@ namespace KT_Timer_App
                     actionType = new ActionType
                     {
                         Type = ActionType.TypeAction.RunCommand,
-                        Command = "shutdown -s -t 5",
+                        Command = "shutdown -s",
                         TaskID = parentID
                     };
                     contentAction = "Shutdown computer";
@@ -166,7 +227,14 @@ namespace KT_Timer_App
                     tasks[parentID].Steps = new List<Step>();
 
                 tasks[parentID].Steps.Add(step);
+
+                //reset trạng thái 1 số btn
                 txbStepName.Text = string.Empty;
+                cbRightClick.Checked = false;
+                cbDoubleClick.Checked = false;
+
+                //Thêm step xong thì lưu data
+                dataHandle.GhiDuLieu(module.Tasks);
 
                 this.Close();
             }
@@ -180,31 +248,46 @@ namespace KT_Timer_App
 
         private void rbtnOpenApp_CheckedChanged(object sender, EventArgs e)
         {
-            txbLinkApp.Enabled = true;
-            btnBrowserApp.Enabled = true;
-            txbLinkButtonImage.Enabled = false;
-            btnBrowserImage.Enabled = false;
+            pnOpenApp.Enabled = true;
+            pnClick.Enabled = false;
+            pnSendKey.Enabled = false;
             pnCommand.Enabled = false;
         }
 
         private void rbtnClick_CheckedChanged(object sender, EventArgs e)
         {
-            txbLinkApp.Enabled = false;
-            btnBrowserApp.Enabled = false;
-            txbLinkButtonImage.Enabled = true;
-            btnBrowserImage.Enabled = true;
+            pnOpenApp.Enabled = false;
+            pnClick.Enabled = true;
+            pnSendKey.Enabled = false;
+            pnCommand.Enabled = false;
+        }
+        private void rbtnUseKeyboard_CheckedChanged(object sender, EventArgs e)
+        {
+            pnOpenApp.Enabled = false;
+            pnClick.Enabled = false;
+            pnSendKey.Enabled = true;
             pnCommand.Enabled = false;
         }
 
         private void rbtnExecuteCommand_CheckedChanged(object sender, EventArgs e)
         {
-            txbLinkApp.Enabled = false;
-            btnBrowserApp.Enabled = false;
-            txbLinkButtonImage.Enabled = false;
-            btnBrowserImage.Enabled = false;
+            pnOpenApp.Enabled = false;
+            pnClick.Enabled = false;
+            pnSendKey.Enabled = false;
             pnCommand.Enabled = true;
         }
-
+        private void rbtnShortcutKey_CheckedChanged(object sender, EventArgs e)
+        {
+            txbText.Enabled = false;
+            cbbModifierKey.Enabled = true;
+            cbbKey.Enabled = true;
+        }
+        private void rbtnText_CheckedChanged(object sender, EventArgs e)
+        {
+            cbbModifierKey.Enabled = false;
+            cbbKey.Enabled = false;
+            txbText.Enabled = true;
+        }
         private void rbtnShutdown_CheckedChanged(object sender, EventArgs e)
         {
             txbCommand.Enabled = false;
@@ -245,7 +328,24 @@ namespace KT_Timer_App
             }
         }
 
-        private void btnBrowserApp_Click(object sender, EventArgs e)
+
+        private void btnBrowserImage_Click_1(object sender, EventArgs e)
+        {
+            openFileDialog.Title = "Select File";
+            //openFileDialog.InitialDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Desktop");
+            openFileDialog.Filter = "Image file (*.PNG)|*.PNG";
+            openFileDialog.FileName = string.Empty;
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                txbLinkButtonImage.Text = Path.GetFullPath(openFileDialog.FileName);
+            }
+            else
+            {
+                txbLinkButtonImage.Text = string.Empty;
+            }
+        }
+
+        private void btnBrowserApp_Click_1(object sender, EventArgs e)
         {
             openFileDialog.Title = "Select File";
             openFileDialog.Filter = "All files (*.*)|*.*";
@@ -261,20 +361,6 @@ namespace KT_Timer_App
             }
         }
 
-        private void btnBrowserImage_Click(object sender, EventArgs e)
-        {
-            openFileDialog.Title = "Select File";
-            //openFileDialog.InitialDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Desktop");
-            openFileDialog.Filter = "Image file (*.PNG)|*.PNG";
-            openFileDialog.FileName = string.Empty;
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                txbLinkButtonImage.Text = Path.GetFullPath(openFileDialog.FileName);
-            }
-            else
-            {
-                txbLinkButtonImage.Text = string.Empty;
-            }
-        }
+        
     }
 }

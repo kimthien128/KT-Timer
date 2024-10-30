@@ -36,6 +36,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.pbSaveData = new System.Windows.Forms.PictureBox();
             this.pbSetting = new System.Windows.Forms.PictureBox();
+            this.pbRefreshUI = new System.Windows.Forms.PictureBox();
             this.pnLogo = new System.Windows.Forms.Panel();
             this.pnContainer = new System.Windows.Forms.Panel();
             this.pnMain = new System.Windows.Forms.Panel();
@@ -51,10 +52,12 @@
             this.txbLog = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.pnHeader = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.lbTimeNow = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.pnBar.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSaveData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSetting)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRefreshUI)).BeginInit();
             this.pnContainer.SuspendLayout();
             this.pnMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnAddNewTask)).BeginInit();
@@ -73,17 +76,21 @@
             // 
             // kryptonPalette1
             // 
+            this.kryptonPalette1.BasePaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
             this.kryptonPalette1.FormStyles.FormMain.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(247)))));
             this.kryptonPalette1.FormStyles.FormMain.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(247)))));
+            this.kryptonPalette1.FormStyles.FormMain.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonPalette1.FormStyles.FormMain.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(217)))));
             this.kryptonPalette1.FormStyles.FormMain.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(247)))));
             this.kryptonPalette1.FormStyles.FormMain.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.kryptonPalette1.FormStyles.FormMain.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.None;
+            this.kryptonPalette1.FormStyles.FormMain.StateCommon.Border.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonPalette1.FormStyles.FormMain.StateCommon.Border.Rounding = 12;
             this.kryptonPalette1.HeaderStyles.HeaderForm.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(247)))));
             this.kryptonPalette1.HeaderStyles.HeaderForm.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(247)))));
+            this.kryptonPalette1.HeaderStyles.HeaderForm.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonPalette1.HeaderStyles.HeaderForm.StateCommon.ButtonEdgeInset = 10;
             this.kryptonPalette1.HeaderStyles.HeaderForm.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, -1, -1, -1);
             // 
@@ -95,26 +102,27 @@
             this.pnBar.Location = new System.Drawing.Point(0, 0);
             this.pnBar.Name = "pnBar";
             this.pnBar.Padding = new System.Windows.Forms.Padding(5);
-            this.pnBar.Size = new System.Drawing.Size(100, 539);
+            this.pnBar.Size = new System.Drawing.Size(80, 539);
             this.pnBar.TabIndex = 17;
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.pbSaveData);
             this.flowLayoutPanel1.Controls.Add(this.pbSetting);
+            this.flowLayoutPanel1.Controls.Add(this.pbRefreshUI);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.ForeColor = System.Drawing.SystemColors.Control;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(5, 95);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(5, 75);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(20);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(90, 439);
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(10);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(70, 459);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // pbSaveData
             // 
             this.pbSaveData.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbSaveData.Image = global::KT_Timer_App.Properties.Resources.icons8_save_96px;
-            this.pbSaveData.Location = new System.Drawing.Point(23, 23);
+            this.pbSaveData.Location = new System.Drawing.Point(13, 13);
             this.pbSaveData.Name = "pbSaveData";
             this.pbSaveData.Size = new System.Drawing.Size(45, 45);
             this.pbSaveData.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -126,21 +134,33 @@
             // 
             this.pbSetting.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbSetting.Image = global::KT_Timer_App.Properties.Resources.icons8_settings_96px;
-            this.pbSetting.Location = new System.Drawing.Point(23, 74);
+            this.pbSetting.Location = new System.Drawing.Point(13, 64);
             this.pbSetting.Name = "pbSetting";
             this.pbSetting.Size = new System.Drawing.Size(45, 45);
             this.pbSetting.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbSetting.TabIndex = 4;
             this.pbSetting.TabStop = false;
             // 
+            // pbRefreshUI
+            // 
+            this.pbRefreshUI.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbRefreshUI.Image = global::KT_Timer_App.Properties.Resources.icons8_refresh_96px;
+            this.pbRefreshUI.Location = new System.Drawing.Point(13, 115);
+            this.pbRefreshUI.Name = "pbRefreshUI";
+            this.pbRefreshUI.Size = new System.Drawing.Size(45, 45);
+            this.pbRefreshUI.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbRefreshUI.TabIndex = 5;
+            this.pbRefreshUI.TabStop = false;
+            this.pbRefreshUI.Click += new System.EventHandler(this.pbRefreshUI_Click);
+            // 
             // pnLogo
             // 
-            this.pnLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnLogo.BackgroundImage")));
+            this.pnLogo.BackgroundImage = global::KT_Timer_App.Properties.Resources.logo_KT_Studio_Yellow_05;
             this.pnLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pnLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnLogo.Location = new System.Drawing.Point(5, 5);
             this.pnLogo.Name = "pnLogo";
-            this.pnLogo.Size = new System.Drawing.Size(90, 90);
+            this.pnLogo.Size = new System.Drawing.Size(70, 70);
             this.pnLogo.TabIndex = 0;
             // 
             // pnContainer
@@ -150,7 +170,7 @@
             this.pnContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnContainer.Location = new System.Drawing.Point(0, 0);
             this.pnContainer.Name = "pnContainer";
-            this.pnContainer.Size = new System.Drawing.Size(779, 539);
+            this.pnContainer.Size = new System.Drawing.Size(879, 539);
             this.pnContainer.TabIndex = 18;
             // 
             // pnMain
@@ -160,10 +180,10 @@
             this.pnMain.Controls.Add(this.pnLog);
             this.pnMain.Controls.Add(this.pnHeader);
             this.pnMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnMain.Location = new System.Drawing.Point(100, 0);
+            this.pnMain.Location = new System.Drawing.Point(80, 0);
             this.pnMain.Name = "pnMain";
             this.pnMain.Padding = new System.Windows.Forms.Padding(5);
-            this.pnMain.Size = new System.Drawing.Size(679, 539);
+            this.pnMain.Size = new System.Drawing.Size(799, 539);
             this.pnMain.TabIndex = 18;
             // 
             // flpTaskList
@@ -174,7 +194,7 @@
             this.flpTaskList.Location = new System.Drawing.Point(5, 121);
             this.flpTaskList.Name = "flpTaskList";
             this.flpTaskList.Padding = new System.Windows.Forms.Padding(21, 10, 0, 0);
-            this.flpTaskList.Size = new System.Drawing.Size(669, 359);
+            this.flpTaskList.Size = new System.Drawing.Size(789, 359);
             this.flpTaskList.TabIndex = 15;
             // 
             // pnAddNewTask
@@ -189,10 +209,11 @@
             this.pnAddNewTask.Location = new System.Drawing.Point(5, 44);
             this.pnAddNewTask.Name = "pnAddNewTask";
             this.pnAddNewTask.Padding = new System.Windows.Forms.Padding(15, 15, 21, 15);
-            this.pnAddNewTask.Size = new System.Drawing.Size(669, 77);
+            this.pnAddNewTask.Size = new System.Drawing.Size(789, 77);
             this.pnAddNewTask.StateNormal.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(247)))));
             this.pnAddNewTask.StateNormal.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(217)))));
             this.pnAddNewTask.StateNormal.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.SolidBottomLine;
+            this.pnAddNewTask.StateNormal.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.pnAddNewTask.TabIndex = 5;
             // 
             // lbClearTxbTaskName
@@ -202,7 +223,7 @@
             this.lbClearTxbTaskName.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbClearTxbTaskName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbClearTxbTaskName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(133)))));
-            this.lbClearTxbTaskName.Location = new System.Drawing.Point(207, 39);
+            this.lbClearTxbTaskName.Location = new System.Drawing.Point(278, 39);
             this.lbClearTxbTaskName.Name = "lbClearTxbTaskName";
             this.lbClearTxbTaskName.Size = new System.Drawing.Size(13, 16);
             this.lbClearTxbTaskName.TabIndex = 14;
@@ -212,11 +233,15 @@
             // 
             // kryptonLabel6
             // 
-            this.kryptonLabel6.Location = new System.Drawing.Point(265, 8);
+            this.kryptonLabel6.Location = new System.Drawing.Point(372, 8);
             this.kryptonLabel6.Name = "kryptonLabel6";
             this.kryptonLabel6.Size = new System.Drawing.Size(109, 20);
             this.kryptonLabel6.StateCommon.ShortText.Color1 = System.Drawing.Color.Black;
+            this.kryptonLabel6.StateCommon.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.kryptonLabel6.StateCommon.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.kryptonLabel6.StateNormal.ShortText.Color1 = System.Drawing.Color.Black;
+            this.kryptonLabel6.StateNormal.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.kryptonLabel6.StateNormal.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.kryptonLabel6.TabIndex = 11;
             this.kryptonLabel6.Values.Text = "Choose start time:";
             // 
@@ -226,7 +251,11 @@
             this.kryptonLabel5.Name = "kryptonLabel5";
             this.kryptonLabel5.Size = new System.Drawing.Size(100, 20);
             this.kryptonLabel5.StateCommon.ShortText.Color1 = System.Drawing.Color.Black;
+            this.kryptonLabel5.StateCommon.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.kryptonLabel5.StateCommon.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.kryptonLabel5.StateNormal.ShortText.Color1 = System.Drawing.Color.Black;
+            this.kryptonLabel5.StateNormal.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.kryptonLabel5.StateNormal.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.kryptonLabel5.TabIndex = 10;
             this.kryptonLabel5.Values.Text = "Enter task name:";
             // 
@@ -234,12 +263,13 @@
             // 
             this.txbTaskName.Location = new System.Drawing.Point(24, 33);
             this.txbTaskName.Name = "txbTaskName";
-            this.txbTaskName.Size = new System.Drawing.Size(205, 33);
+            this.txbTaskName.Size = new System.Drawing.Size(281, 33);
             this.txbTaskName.StateCommon.Back.Color1 = System.Drawing.Color.White;
             this.txbTaskName.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(217)))));
             this.txbTaskName.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.txbTaskName.StateCommon.Border.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.txbTaskName.StateCommon.Border.Rounding = 15;
             this.txbTaskName.StateCommon.Content.Color1 = System.Drawing.Color.Black;
             this.txbTaskName.TabIndex = 9;
@@ -249,7 +279,7 @@
             // 
             this.dtpTaskStartTime.CustomFormat = "dd/MM/yyyy |  HH:mm:ss";
             this.dtpTaskStartTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpTaskStartTime.Location = new System.Drawing.Point(265, 34);
+            this.dtpTaskStartTime.Location = new System.Drawing.Point(372, 34);
             this.dtpTaskStartTime.Name = "dtpTaskStartTime";
             this.dtpTaskStartTime.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
             this.dtpTaskStartTime.Size = new System.Drawing.Size(176, 31);
@@ -258,6 +288,7 @@
             this.dtpTaskStartTime.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.dtpTaskStartTime.StateCommon.Border.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.dtpTaskStartTime.StateCommon.Border.Rounding = 15;
             this.dtpTaskStartTime.StateCommon.Content.Color1 = System.Drawing.Color.Black;
             this.dtpTaskStartTime.TabIndex = 6;
@@ -265,7 +296,7 @@
             // btnAddNewTask
             // 
             this.btnAddNewTask.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnAddNewTask.Location = new System.Drawing.Point(498, 15);
+            this.btnAddNewTask.Location = new System.Drawing.Point(618, 15);
             this.btnAddNewTask.Name = "btnAddNewTask";
             this.btnAddNewTask.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
             this.btnAddNewTask.Size = new System.Drawing.Size(150, 47);
@@ -279,8 +310,9 @@
             this.pnLog.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnLog.Location = new System.Drawing.Point(5, 480);
             this.pnLog.Name = "pnLog";
-            this.pnLog.Size = new System.Drawing.Size(669, 54);
+            this.pnLog.Size = new System.Drawing.Size(789, 54);
             this.pnLog.StateNormal.Color1 = System.Drawing.Color.Transparent;
+            this.pnLog.StateNormal.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.pnLog.TabIndex = 14;
             // 
             // txbLog
@@ -291,16 +323,18 @@
             this.txbLog.Name = "txbLog";
             this.txbLog.ReadOnly = true;
             this.txbLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txbLog.Size = new System.Drawing.Size(669, 54);
+            this.txbLog.Size = new System.Drawing.Size(789, 54);
             this.txbLog.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(227)))), ((int)(((byte)(232)))));
             this.txbLog.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.txbLog.StateCommon.Border.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.txbLog.StateCommon.Border.Rounding = 12;
             this.txbLog.StateCommon.Content.Color1 = System.Drawing.Color.Black;
             this.txbLog.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.txbLog.StateNormal.Border.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.txbLog.StateNormal.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(82)))), ((int)(((byte)(101)))));
             this.txbLog.StateNormal.Content.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbLog.TabIndex = 0;
@@ -311,26 +345,36 @@
             this.pnHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnHeader.Location = new System.Drawing.Point(5, 5);
             this.pnHeader.Name = "pnHeader";
-            this.pnHeader.Size = new System.Drawing.Size(669, 39);
+            this.pnHeader.Size = new System.Drawing.Size(789, 39);
             this.pnHeader.StateNormal.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(247)))));
+            this.pnHeader.StateNormal.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.pnHeader.TabIndex = 4;
             // 
             // lbTimeNow
             // 
             this.lbTimeNow.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitleControl;
-            this.lbTimeNow.Location = new System.Drawing.Point(249, 4);
+            this.lbTimeNow.Location = new System.Drawing.Point(295, 4);
             this.lbTimeNow.Name = "lbTimeNow";
             this.lbTimeNow.Size = new System.Drawing.Size(205, 29);
             this.lbTimeNow.StateNormal.ShortText.Color1 = System.Drawing.Color.Black;
+            this.lbTimeNow.StateNormal.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.lbTimeNow.StateNormal.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.lbTimeNow.TabIndex = 3;
             this.lbTimeNow.Values.Text = "22/12/2022 | 12:22:22";
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
+            // 
             // fMain
             // 
+            this.AcceptButton = this.btnAddNewTask;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(247)))));
-            this.ClientSize = new System.Drawing.Size(779, 539);
+            this.ClientSize = new System.Drawing.Size(879, 539);
             this.Controls.Add(this.pnContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -338,14 +382,17 @@
             this.Name = "fMain";
             this.Palette = this.kryptonPalette1;
             this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "KT Timer";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.fMain_FormClosed);
             this.Load += new System.EventHandler(this.Main_Load);
+            this.SizeChanged += new System.EventHandler(this.fMain_SizeChanged);
             this.pnBar.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbSaveData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSetting)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRefreshUI)).EndInit();
             this.pnContainer.ResumeLayout(false);
             this.pnMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pnAddNewTask)).EndInit();
@@ -383,6 +430,8 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.PictureBox pbSaveData;
         private System.Windows.Forms.PictureBox pbSetting;
+        private System.Windows.Forms.PictureBox pbRefreshUI;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }
 

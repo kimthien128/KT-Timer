@@ -41,6 +41,13 @@ namespace KT_Timer_App
             //tiện thể truyền fMain vào cho các task con nhận giá trị để dễ gọi
             foreach (MyTask task in module.Tasks)
             {
+                //check minStartTime lần đầu
+                if (task.StartTime <= module.minStartDateTime)
+                {
+                    module.minStartDateTime = task.StartTime;
+                }
+
+                //truyền fMain vào cho mỗi task
                 task.SelectFormMain(this);
                 
                 if(task.StartTime < DateTime.Now)
@@ -101,18 +108,16 @@ namespace KT_Timer_App
 
                         //đặt lại maxValue cho biến min
                         module.minStartDateTime = DateTime.MaxValue;
+
+                        //chạy xong thì lưu data
+                        dataHandle.GhiDuLieu(module.Tasks);
+
                         break;
                     }
                 }
 
                 //set lại minStartDateTime mới
-                for (int i = 0; i < module.Tasks.Count; i++)
-                {
-                    if (module.Tasks[i].StartTime <= module.minStartDateTime && !module.Tasks[i].IsComplete)
-                    {
-                        module.minStartDateTime = dtpTaskStartTime.Value;
-                    }
-                }
+                module.SetMinStartDateTime();
             }
         }
 
@@ -201,6 +206,7 @@ namespace KT_Timer_App
                             // Kiểm tra sự tồn tại của hình ảnh (image condition)
                             if (!CheckImageExist(taskID, step.ImageCondition))
                             {
+                                module.log = $"{DateTime.Now} | Task: {taskID} | Hình ảnh \"{step.ImageCondition}\" không tồn tại" + Environment.NewLine;
                                 checkOk = false;
                             }
                         }
@@ -227,7 +233,7 @@ namespace KT_Timer_App
                             module.Tasks[taskID].IsComplete = true;
                             return;
                         }
-
+                        //nếu là step cuối cùng thì đánh dấu toàn bộ thành công
                         if(i == module.Tasks[taskID].Steps.Count - 1)
                         {
                             module.Tasks[taskID].IsSuccess = true;
@@ -274,6 +280,39 @@ namespace KT_Timer_App
         private void pbSaveData_Click(object sender, EventArgs e)
         {
             dataHandle.GhiDuLieu(module.Tasks);
+        }
+
+        private void pbRefreshUI_Click(object sender, EventArgs e)
+        {
+            this.UpdateUI();
+        }
+        
+        /// <summary>
+        /// Set icon and info on TaskBar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void fMain_SizeChanged(object sender, EventArgs e)
+        {
+            bool MousePoiterNotOnTaskBar = Screen.GetWorkingArea(this).Contains(Cursor.Position);
+
+            if(this.WindowState == FormWindowState.Minimized && MousePoiterNotOnTaskBar)
+            {
+                notifyIcon1.Icon = this.Icon;
+                this.ShowInTaskbar = false;
+                notifyIcon1.Visible = true;
+                notifyIcon1.Text = "The next task will start at: " + module.minStartDateTime.ToString("HH:mm:ss");
+            }
+        }
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            if(this.WindowState == FormWindowState.Normal)
+            {
+                this.ShowInTaskbar = true;
+                notifyIcon1.Visible = false;
+            }
         }
 
         

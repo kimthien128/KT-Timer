@@ -34,10 +34,10 @@ C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\bin\Debug\System.Threading.Tasks.Exte
 C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\bin\Debug\System.ValueTuple.xml
 C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\bin\Debug\Newtonsoft.Json.dll
 C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\bin\Debug\Newtonsoft.Json.xml
-C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\bin\Debug\KT Timer App.exe.config
-C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\bin\Debug\KT Timer App.exe
-C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\bin\Debug\KT Timer App.pdb
-C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\obj\Debug\KT Timer App.exe
-C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\obj\Debug\KT Timer App.pdb
 C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\obj\Debug\Interop.Shell32.dll
 C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\obj\Debug\KT-Timer-App.csproj.ResolveComReference.cache
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\bin\Debug\KT Timer.exe.config
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\bin\Debug\KT Timer.exe
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\bin\Debug\KT Timer.pdb
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\obj\Debug\KT Timer.exe
+C:\Users\PC\OneDrive\Repos\C#\KT-Timer-App\obj\Debug\KT Timer.pdb

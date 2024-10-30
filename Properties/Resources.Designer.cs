@@ -63,6 +63,16 @@ namespace KT_Timer_App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_refresh_96px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_refresh_96px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_save_96px {
             get {
                 object obj = ResourceManager.GetObject("icons8_save_96px", resourceCulture);
@@ -83,9 +93,19 @@ namespace KT_Timer_App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap logo_KT_Studio_Yellow_02 {
+        internal static System.Drawing.Bitmap logo_KT_Studio_Yellow_05 {
             get {
-                object obj = ResourceManager.GetObject("logo_KT_Studio_Yellow_02", resourceCulture);
+                object obj = ResourceManager.GetObject("logo KT Studio Yellow-05", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logo_KT_Studio_Yellow_06 {
+            get {
+                object obj = ResourceManager.GetObject("logo_KT_Studio_Yellow_06", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

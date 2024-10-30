@@ -31,10 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.btnAddStep = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.lbStepID = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel3 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.lbTaskName = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.txbLinkApp = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.txbLinkButtonImage = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.pnCommand = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.txbCommand = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.rbtnShutdown = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
@@ -48,97 +45,100 @@
             this.rbtnClick = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.rbtnExecuteCommand = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.pnAction = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.rbtnUseKeyboard = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
+            this.kryptonLabel13 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
-            this.kryptonLabel4 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.cbCheckCondition = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
             this.btnBrowserCondition = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.txbLinkCondition = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonLabel7 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel8 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel9 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.btnBrowserApp = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.pnClick = new System.Windows.Forms.Panel();
+            this.kryptonLabel3 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.btnBrowserImage = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.txbLinkButtonImage = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.cbDoubleClick = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
+            this.cbRightClick = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
+            this.kryptonLabel10 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel11 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.pnOpenApp = new System.Windows.Forms.Panel();
+            this.btnBrowserApp = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kryptonLabel4 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.txbLinkApp = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel12 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.pnSendKey = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.cbbKey = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.cbbModifierKey = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.txbText = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.rbtnText = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
+            this.rbtnShortcutKey = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pnCommand)).BeginInit();
             this.pnCommand.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnAction)).BeginInit();
             this.pnAction.SuspendLayout();
+            this.pnClick.SuspendLayout();
+            this.pnOpenApp.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pnSendKey)).BeginInit();
+            this.pnSendKey.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbbKey)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbbModifierKey)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAddStep
             // 
-            this.btnAddStep.Location = new System.Drawing.Point(24, 425);
+            this.btnAddStep.Location = new System.Drawing.Point(9, 553);
             this.btnAddStep.Name = "btnAddStep";
             this.btnAddStep.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
-            this.btnAddStep.Size = new System.Drawing.Size(328, 25);
+            this.btnAddStep.Size = new System.Drawing.Size(452, 25);
             this.btnAddStep.TabIndex = 0;
             this.btnAddStep.Values.Text = "Add Step (Enter)";
             this.btnAddStep.Click += new System.EventHandler(this.btnAddStep_Click);
             // 
             // lbStepID
             // 
-            this.lbStepID.Location = new System.Drawing.Point(24, 55);
+            this.lbStepID.Location = new System.Drawing.Point(24, 31);
             this.lbStepID.Name = "lbStepID";
             this.lbStepID.Size = new System.Drawing.Size(47, 20);
             this.lbStepID.TabIndex = 3;
             this.lbStepID.Values.Text = "StepID";
             // 
-            // kryptonLabel3
-            // 
-            this.kryptonLabel3.Location = new System.Drawing.Point(162, 250);
-            this.kryptonLabel3.Name = "kryptonLabel3";
-            this.kryptonLabel3.Size = new System.Drawing.Size(187, 20);
-            this.kryptonLabel3.TabIndex = 5;
-            this.kryptonLabel3.Values.Text = "Enter path button image (*.PNG)";
-            // 
             // lbTaskName
             // 
-            this.lbTaskName.Location = new System.Drawing.Point(100, 19);
+            this.lbTaskName.Location = new System.Drawing.Point(100, 0);
             this.lbTaskName.Name = "lbTaskName";
             this.lbTaskName.Size = new System.Drawing.Size(68, 20);
             this.lbTaskName.TabIndex = 7;
             this.lbTaskName.Values.Text = "Task name";
-            // 
-            // txbLinkApp
-            // 
-            this.txbLinkApp.Location = new System.Drawing.Point(163, 213);
-            this.txbLinkApp.Name = "txbLinkApp";
-            this.txbLinkApp.Size = new System.Drawing.Size(199, 23);
-            this.txbLinkApp.TabIndex = 11;
-            this.txbLinkApp.Text = "www.google.com";
-            // 
-            // txbLinkButtonImage
-            // 
-            this.txbLinkButtonImage.Location = new System.Drawing.Point(163, 276);
-            this.txbLinkButtonImage.Name = "txbLinkButtonImage";
-            this.txbLinkButtonImage.Size = new System.Drawing.Size(199, 23);
-            this.txbLinkButtonImage.TabIndex = 13;
             // 
             // pnCommand
             // 
             this.pnCommand.Controls.Add(this.txbCommand);
             this.pnCommand.Controls.Add(this.rbtnShutdown);
             this.pnCommand.Controls.Add(this.rbtnEnterCommand);
-            this.pnCommand.Location = new System.Drawing.Point(162, 330);
+            this.pnCommand.Location = new System.Drawing.Point(161, 473);
             this.pnCommand.Name = "pnCommand";
-            this.pnCommand.Size = new System.Drawing.Size(296, 69);
+            this.pnCommand.Size = new System.Drawing.Size(407, 69);
+            this.pnCommand.StateDisabled.Color1 = System.Drawing.Color.Transparent;
+            this.pnCommand.StateDisabled.Color2 = System.Drawing.Color.Transparent;
             this.pnCommand.StateNormal.Color1 = System.Drawing.Color.Transparent;
             this.pnCommand.TabIndex = 20;
             // 
             // txbCommand
             // 
             this.txbCommand.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbCommand.Location = new System.Drawing.Point(10, 33);
+            this.txbCommand.Location = new System.Drawing.Point(11, 33);
             this.txbCommand.Name = "txbCommand";
-            this.txbCommand.Size = new System.Drawing.Size(189, 23);
+            this.txbCommand.Size = new System.Drawing.Size(238, 23);
             this.txbCommand.TabIndex = 18;
             this.txbCommand.Text = "ping ktstudio.vn";
             // 
             // rbtnShutdown
             // 
             this.rbtnShutdown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.rbtnShutdown.Location = new System.Drawing.Point(205, 7);
+            this.rbtnShutdown.Location = new System.Drawing.Point(265, 7);
             this.rbtnShutdown.Name = "rbtnShutdown";
             this.rbtnShutdown.Size = new System.Drawing.Size(78, 20);
             this.rbtnShutdown.TabIndex = 8;
@@ -148,7 +148,7 @@
             // rbtnEnterCommand
             // 
             this.rbtnEnterCommand.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.rbtnEnterCommand.Location = new System.Drawing.Point(10, 7);
+            this.rbtnEnterCommand.Location = new System.Drawing.Point(11, 7);
             this.rbtnEnterCommand.Name = "rbtnEnterCommand";
             this.rbtnEnterCommand.Size = new System.Drawing.Size(109, 20);
             this.rbtnEnterCommand.TabIndex = 0;
@@ -157,7 +157,7 @@
             // 
             // kryptonLabel6
             // 
-            this.kryptonLabel6.Location = new System.Drawing.Point(100, 55);
+            this.kryptonLabel6.Location = new System.Drawing.Point(99, 31);
             this.kryptonLabel6.Name = "kryptonLabel6";
             this.kryptonLabel6.Size = new System.Drawing.Size(69, 20);
             this.kryptonLabel6.TabIndex = 22;
@@ -165,14 +165,14 @@
             // 
             // txbStepName
             // 
-            this.txbStepName.Location = new System.Drawing.Point(175, 52);
+            this.txbStepName.Location = new System.Drawing.Point(172, 28);
             this.txbStepName.Name = "txbStepName";
-            this.txbStepName.Size = new System.Drawing.Size(283, 23);
+            this.txbStepName.Size = new System.Drawing.Size(286, 23);
             this.txbStepName.TabIndex = 21;
             // 
             // lbParentTaskID
             // 
-            this.lbParentTaskID.Location = new System.Drawing.Point(24, 19);
+            this.lbParentTaskID.Location = new System.Drawing.Point(24, 0);
             this.lbParentTaskID.Name = "lbParentTaskID";
             this.lbParentTaskID.Size = new System.Drawing.Size(82, 20);
             this.lbParentTaskID.TabIndex = 2;
@@ -181,7 +181,7 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(368, 425);
+            this.btnCancel.Location = new System.Drawing.Point(478, 553);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Black;
             this.btnCancel.Size = new System.Drawing.Size(90, 25);
@@ -191,7 +191,7 @@
             // 
             // rbtnOpenApp
             // 
-            this.rbtnOpenApp.Location = new System.Drawing.Point(19, 31);
+            this.rbtnOpenApp.Location = new System.Drawing.Point(19, 37);
             this.rbtnOpenApp.Name = "rbtnOpenApp";
             this.rbtnOpenApp.Size = new System.Drawing.Size(118, 20);
             this.rbtnOpenApp.TabIndex = 0;
@@ -208,7 +208,7 @@
             // 
             // rbtnClick
             // 
-            this.rbtnClick.Location = new System.Drawing.Point(19, 94);
+            this.rbtnClick.Location = new System.Drawing.Point(19, 140);
             this.rbtnClick.Name = "rbtnClick";
             this.rbtnClick.Size = new System.Drawing.Size(106, 20);
             this.rbtnClick.TabIndex = 7;
@@ -217,7 +217,7 @@
             // 
             // rbtnExecuteCommand
             // 
-            this.rbtnExecuteCommand.Location = new System.Drawing.Point(19, 172);
+            this.rbtnExecuteCommand.Location = new System.Drawing.Point(19, 341);
             this.rbtnExecuteCommand.Name = "rbtnExecuteCommand";
             this.rbtnExecuteCommand.Size = new System.Drawing.Size(79, 20);
             this.rbtnExecuteCommand.TabIndex = 8;
@@ -226,21 +226,40 @@
             // 
             // pnAction
             // 
+            this.pnAction.Controls.Add(this.rbtnUseKeyboard);
+            this.pnAction.Controls.Add(this.kryptonLabel13);
             this.pnAction.Controls.Add(this.kryptonLabel2);
             this.pnAction.Controls.Add(this.kryptonLabel1);
             this.pnAction.Controls.Add(this.rbtnExecuteCommand);
             this.pnAction.Controls.Add(this.rbtnClick);
             this.pnAction.Controls.Add(this.kryptonLabel5);
             this.pnAction.Controls.Add(this.rbtnOpenApp);
-            this.pnAction.Location = new System.Drawing.Point(9, 182);
+            this.pnAction.Location = new System.Drawing.Point(9, 154);
             this.pnAction.Name = "pnAction";
-            this.pnAction.Size = new System.Drawing.Size(147, 217);
+            this.pnAction.Size = new System.Drawing.Size(147, 388);
             this.pnAction.StateNormal.Color1 = System.Drawing.Color.Transparent;
             this.pnAction.TabIndex = 8;
             // 
+            // rbtnUseKeyboard
+            // 
+            this.rbtnUseKeyboard.Location = new System.Drawing.Point(19, 247);
+            this.rbtnUseKeyboard.Name = "rbtnUseKeyboard";
+            this.rbtnUseKeyboard.Size = new System.Drawing.Size(98, 20);
+            this.rbtnUseKeyboard.TabIndex = 27;
+            this.rbtnUseKeyboard.Values.Text = "Use Keyboard";
+            this.rbtnUseKeyboard.CheckedChanged += new System.EventHandler(this.rbtnUseKeyboard_CheckedChanged);
+            // 
+            // kryptonLabel13
+            // 
+            this.kryptonLabel13.Location = new System.Drawing.Point(6, 293);
+            this.kryptonLabel13.Name = "kryptonLabel13";
+            this.kryptonLabel13.Size = new System.Drawing.Size(134, 20);
+            this.kryptonLabel13.TabIndex = 26;
+            this.kryptonLabel13.Values.Text = "-------------------------";
+            // 
             // kryptonLabel2
             // 
-            this.kryptonLabel2.Location = new System.Drawing.Point(6, 55);
+            this.kryptonLabel2.Location = new System.Drawing.Point(6, 79);
             this.kryptonLabel2.Name = "kryptonLabel2";
             this.kryptonLabel2.Size = new System.Drawing.Size(134, 20);
             this.kryptonLabel2.TabIndex = 25;
@@ -248,7 +267,7 @@
             // 
             // kryptonLabel1
             // 
-            this.kryptonLabel1.Location = new System.Drawing.Point(3, 138);
+            this.kryptonLabel1.Location = new System.Drawing.Point(3, 200);
             this.kryptonLabel1.Name = "kryptonLabel1";
             this.kryptonLabel1.Size = new System.Drawing.Size(134, 20);
             this.kryptonLabel1.TabIndex = 24;
@@ -268,17 +287,9 @@
             this.kryptonPalette1.HeaderStyles.HeaderForm.StateCommon.ButtonEdgeInset = 10;
             this.kryptonPalette1.HeaderStyles.HeaderForm.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, -1, -1, -1);
             // 
-            // kryptonLabel4
-            // 
-            this.kryptonLabel4.Location = new System.Drawing.Point(163, 187);
-            this.kryptonLabel4.Name = "kryptonLabel4";
-            this.kryptonLabel4.Size = new System.Drawing.Size(198, 20);
-            this.kryptonLabel4.TabIndex = 24;
-            this.kryptonLabel4.Values.Text = "Enter path application (or website)";
-            // 
             // cbCheckCondition
             // 
-            this.cbCheckCondition.Location = new System.Drawing.Point(28, 103);
+            this.cbCheckCondition.Location = new System.Drawing.Point(28, 80);
             this.cbCheckCondition.Name = "cbCheckCondition";
             this.cbCheckCondition.Size = new System.Drawing.Size(111, 20);
             this.cbCheckCondition.TabIndex = 25;
@@ -287,7 +298,7 @@
             // 
             // btnBrowserCondition
             // 
-            this.btnBrowserCondition.Location = new System.Drawing.Point(368, 128);
+            this.btnBrowserCondition.Location = new System.Drawing.Point(368, 105);
             this.btnBrowserCondition.Name = "btnBrowserCondition";
             this.btnBrowserCondition.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
             this.btnBrowserCondition.Size = new System.Drawing.Size(90, 25);
@@ -297,14 +308,14 @@
             // 
             // txbLinkCondition
             // 
-            this.txbLinkCondition.Location = new System.Drawing.Point(163, 129);
+            this.txbLinkCondition.Location = new System.Drawing.Point(172, 106);
             this.txbLinkCondition.Name = "txbLinkCondition";
-            this.txbLinkCondition.Size = new System.Drawing.Size(199, 23);
+            this.txbLinkCondition.Size = new System.Drawing.Size(190, 23);
             this.txbLinkCondition.TabIndex = 27;
             // 
             // kryptonLabel7
             // 
-            this.kryptonLabel7.Location = new System.Drawing.Point(162, 103);
+            this.kryptonLabel7.Location = new System.Drawing.Point(162, 80);
             this.kryptonLabel7.Name = "kryptonLabel7";
             this.kryptonLabel7.Size = new System.Drawing.Size(185, 20);
             this.kryptonLabel7.TabIndex = 26;
@@ -312,7 +323,7 @@
             // 
             // kryptonLabel8
             // 
-            this.kryptonLabel8.Location = new System.Drawing.Point(15, 156);
+            this.kryptonLabel8.Location = new System.Drawing.Point(15, 132);
             this.kryptonLabel8.Name = "kryptonLabel8";
             this.kryptonLabel8.Size = new System.Drawing.Size(446, 20);
             this.kryptonLabel8.TabIndex = 29;
@@ -321,32 +332,191 @@
             // 
             // kryptonLabel9
             // 
-            this.kryptonLabel9.Location = new System.Drawing.Point(12, 81);
+            this.kryptonLabel9.Location = new System.Drawing.Point(12, 57);
             this.kryptonLabel9.Name = "kryptonLabel9";
             this.kryptonLabel9.Size = new System.Drawing.Size(446, 20);
             this.kryptonLabel9.TabIndex = 30;
             this.kryptonLabel9.Values.Text = "---------------------------------------------------------------------------------" +
     "-------";
             // 
-            // btnBrowserApp
+            // pnClick
             // 
-            this.btnBrowserApp.Location = new System.Drawing.Point(367, 212);
-            this.btnBrowserApp.Name = "btnBrowserApp";
-            this.btnBrowserApp.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
-            this.btnBrowserApp.Size = new System.Drawing.Size(90, 25);
-            this.btnBrowserApp.TabIndex = 31;
-            this.btnBrowserApp.Values.Text = "Browser";
-            this.btnBrowserApp.Click += new System.EventHandler(this.btnBrowserApp_Click);
+            this.pnClick.Controls.Add(this.kryptonLabel3);
+            this.pnClick.Controls.Add(this.btnBrowserImage);
+            this.pnClick.Controls.Add(this.txbLinkButtonImage);
+            this.pnClick.Controls.Add(this.cbDoubleClick);
+            this.pnClick.Controls.Add(this.cbRightClick);
+            this.pnClick.Location = new System.Drawing.Point(162, 259);
+            this.pnClick.Name = "pnClick";
+            this.pnClick.Size = new System.Drawing.Size(406, 92);
+            this.pnClick.TabIndex = 33;
+            // 
+            // kryptonLabel3
+            // 
+            this.kryptonLabel3.Location = new System.Drawing.Point(10, 7);
+            this.kryptonLabel3.Name = "kryptonLabel3";
+            this.kryptonLabel3.Size = new System.Drawing.Size(187, 20);
+            this.kryptonLabel3.TabIndex = 35;
+            this.kryptonLabel3.Values.Text = "Enter path button image (*.PNG)";
             // 
             // btnBrowserImage
             // 
-            this.btnBrowserImage.Location = new System.Drawing.Point(367, 275);
+            this.btnBrowserImage.Location = new System.Drawing.Point(204, 32);
             this.btnBrowserImage.Name = "btnBrowserImage";
             this.btnBrowserImage.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
             this.btnBrowserImage.Size = new System.Drawing.Size(90, 25);
-            this.btnBrowserImage.TabIndex = 32;
+            this.btnBrowserImage.TabIndex = 34;
             this.btnBrowserImage.Values.Text = "Browser";
-            this.btnBrowserImage.Click += new System.EventHandler(this.btnBrowserImage_Click);
+            this.btnBrowserImage.Click += new System.EventHandler(this.btnBrowserImage_Click_1);
+            // 
+            // txbLinkButtonImage
+            // 
+            this.txbLinkButtonImage.Location = new System.Drawing.Point(10, 33);
+            this.txbLinkButtonImage.Name = "txbLinkButtonImage";
+            this.txbLinkButtonImage.Size = new System.Drawing.Size(189, 23);
+            this.txbLinkButtonImage.TabIndex = 33;
+            // 
+            // cbDoubleClick
+            // 
+            this.cbDoubleClick.Location = new System.Drawing.Point(108, 66);
+            this.cbDoubleClick.Name = "cbDoubleClick";
+            this.cbDoubleClick.Size = new System.Drawing.Size(92, 20);
+            this.cbDoubleClick.TabIndex = 27;
+            this.cbDoubleClick.Values.Text = "Double Click";
+            // 
+            // cbRightClick
+            // 
+            this.cbRightClick.Location = new System.Drawing.Point(10, 66);
+            this.cbRightClick.Name = "cbRightClick";
+            this.cbRightClick.Size = new System.Drawing.Size(81, 20);
+            this.cbRightClick.TabIndex = 26;
+            this.cbRightClick.Values.Text = "Right Click";
+            // 
+            // kryptonLabel10
+            // 
+            this.kryptonLabel10.Location = new System.Drawing.Point(162, 354);
+            this.kryptonLabel10.Name = "kryptonLabel10";
+            this.kryptonLabel10.Size = new System.Drawing.Size(297, 20);
+            this.kryptonLabel10.TabIndex = 34;
+            this.kryptonLabel10.Values.Text = "----------------------------------------------------------";
+            // 
+            // kryptonLabel11
+            // 
+            this.kryptonLabel11.Location = new System.Drawing.Point(161, 233);
+            this.kryptonLabel11.Name = "kryptonLabel11";
+            this.kryptonLabel11.Size = new System.Drawing.Size(297, 20);
+            this.kryptonLabel11.TabIndex = 35;
+            this.kryptonLabel11.Values.Text = "----------------------------------------------------------";
+            // 
+            // pnOpenApp
+            // 
+            this.pnOpenApp.Controls.Add(this.btnBrowserApp);
+            this.pnOpenApp.Controls.Add(this.kryptonLabel4);
+            this.pnOpenApp.Controls.Add(this.txbLinkApp);
+            this.pnOpenApp.Location = new System.Drawing.Point(162, 154);
+            this.pnOpenApp.Name = "pnOpenApp";
+            this.pnOpenApp.Size = new System.Drawing.Size(406, 80);
+            this.pnOpenApp.TabIndex = 36;
+            // 
+            // btnBrowserApp
+            // 
+            this.btnBrowserApp.Location = new System.Drawing.Point(204, 34);
+            this.btnBrowserApp.Name = "btnBrowserApp";
+            this.btnBrowserApp.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
+            this.btnBrowserApp.Size = new System.Drawing.Size(90, 25);
+            this.btnBrowserApp.TabIndex = 34;
+            this.btnBrowserApp.Values.Text = "Browser";
+            this.btnBrowserApp.Click += new System.EventHandler(this.btnBrowserApp_Click_1);
+            // 
+            // kryptonLabel4
+            // 
+            this.kryptonLabel4.Location = new System.Drawing.Point(10, 9);
+            this.kryptonLabel4.Name = "kryptonLabel4";
+            this.kryptonLabel4.Size = new System.Drawing.Size(198, 20);
+            this.kryptonLabel4.TabIndex = 33;
+            this.kryptonLabel4.Values.Text = "Enter path application (or website)";
+            // 
+            // txbLinkApp
+            // 
+            this.txbLinkApp.Location = new System.Drawing.Point(10, 35);
+            this.txbLinkApp.Name = "txbLinkApp";
+            this.txbLinkApp.Size = new System.Drawing.Size(189, 23);
+            this.txbLinkApp.TabIndex = 32;
+            this.txbLinkApp.Text = "www.google.com";
+            // 
+            // kryptonLabel12
+            // 
+            this.kryptonLabel12.Location = new System.Drawing.Point(162, 447);
+            this.kryptonLabel12.Name = "kryptonLabel12";
+            this.kryptonLabel12.Size = new System.Drawing.Size(297, 20);
+            this.kryptonLabel12.TabIndex = 37;
+            this.kryptonLabel12.Values.Text = "----------------------------------------------------------";
+            // 
+            // pnSendKey
+            // 
+            this.pnSendKey.Controls.Add(this.cbbKey);
+            this.pnSendKey.Controls.Add(this.cbbModifierKey);
+            this.pnSendKey.Controls.Add(this.txbText);
+            this.pnSendKey.Controls.Add(this.rbtnText);
+            this.pnSendKey.Controls.Add(this.rbtnShortcutKey);
+            this.pnSendKey.Location = new System.Drawing.Point(161, 377);
+            this.pnSendKey.Name = "pnSendKey";
+            this.pnSendKey.Size = new System.Drawing.Size(407, 69);
+            this.pnSendKey.StateDisabled.Color1 = System.Drawing.Color.Transparent;
+            this.pnSendKey.StateDisabled.Color2 = System.Drawing.Color.Transparent;
+            this.pnSendKey.StateNormal.Color1 = System.Drawing.Color.Transparent;
+            this.pnSendKey.TabIndex = 38;
+            // 
+            // cbbKey
+            // 
+            this.cbbKey.DropDownWidth = 121;
+            this.cbbKey.Items.AddRange(new object[] {
+            "D"});
+            this.cbbKey.Location = new System.Drawing.Point(109, 35);
+            this.cbbKey.Name = "cbbKey";
+            this.cbbKey.Size = new System.Drawing.Size(77, 21);
+            this.cbbKey.TabIndex = 41;
+            this.cbbKey.Text = "D";
+            // 
+            // cbbModifierKey
+            // 
+            this.cbbModifierKey.DropDownWidth = 121;
+            this.cbbModifierKey.Items.AddRange(new object[] {
+            "WIN"});
+            this.cbbModifierKey.Location = new System.Drawing.Point(11, 35);
+            this.cbbModifierKey.Name = "cbbModifierKey";
+            this.cbbModifierKey.Size = new System.Drawing.Size(87, 21);
+            this.cbbModifierKey.TabIndex = 40;
+            this.cbbModifierKey.Text = "WIN";
+            // 
+            // txbText
+            // 
+            this.txbText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbText.Location = new System.Drawing.Point(265, 33);
+            this.txbText.Name = "txbText";
+            this.txbText.Size = new System.Drawing.Size(129, 23);
+            this.txbText.TabIndex = 18;
+            this.txbText.Text = "123@gmail.com";
+            // 
+            // rbtnText
+            // 
+            this.rbtnText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.rbtnText.Location = new System.Drawing.Point(265, 7);
+            this.rbtnText.Name = "rbtnText";
+            this.rbtnText.Size = new System.Drawing.Size(45, 20);
+            this.rbtnText.TabIndex = 8;
+            this.rbtnText.Values.Text = "Text";
+            this.rbtnText.CheckedChanged += new System.EventHandler(this.rbtnText_CheckedChanged);
+            // 
+            // rbtnShortcutKey
+            // 
+            this.rbtnShortcutKey.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.rbtnShortcutKey.Location = new System.Drawing.Point(11, 7);
+            this.rbtnShortcutKey.Name = "rbtnShortcutKey";
+            this.rbtnShortcutKey.Size = new System.Drawing.Size(92, 20);
+            this.rbtnShortcutKey.TabIndex = 0;
+            this.rbtnShortcutKey.Values.Text = "Shortcut Key";
+            this.rbtnShortcutKey.CheckedChanged += new System.EventHandler(this.rbtnShortcutKey_CheckedChanged);
             // 
             // fAddStep
             // 
@@ -355,25 +525,25 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(488, 475);
-            this.Controls.Add(this.btnBrowserImage);
-            this.Controls.Add(this.btnBrowserApp);
+            this.ClientSize = new System.Drawing.Size(580, 592);
+            this.Controls.Add(this.pnSendKey);
+            this.Controls.Add(this.kryptonLabel12);
+            this.Controls.Add(this.pnOpenApp);
+            this.Controls.Add(this.kryptonLabel11);
+            this.Controls.Add(this.kryptonLabel10);
+            this.Controls.Add(this.pnClick);
             this.Controls.Add(this.kryptonLabel9);
             this.Controls.Add(this.kryptonLabel8);
             this.Controls.Add(this.btnBrowserCondition);
             this.Controls.Add(this.txbLinkCondition);
             this.Controls.Add(this.kryptonLabel7);
             this.Controls.Add(this.cbCheckCondition);
-            this.Controls.Add(this.kryptonLabel4);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.kryptonLabel6);
             this.Controls.Add(this.txbStepName);
             this.Controls.Add(this.pnCommand);
-            this.Controls.Add(this.txbLinkButtonImage);
-            this.Controls.Add(this.txbLinkApp);
             this.Controls.Add(this.pnAction);
             this.Controls.Add(this.lbTaskName);
-            this.Controls.Add(this.kryptonLabel3);
             this.Controls.Add(this.lbStepID);
             this.Controls.Add(this.lbParentTaskID);
             this.Controls.Add(this.btnAddStep);
@@ -393,6 +563,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pnAction)).EndInit();
             this.pnAction.ResumeLayout(false);
             this.pnAction.PerformLayout();
+            this.pnClick.ResumeLayout(false);
+            this.pnClick.PerformLayout();
+            this.pnOpenApp.ResumeLayout(false);
+            this.pnOpenApp.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pnSendKey)).EndInit();
+            this.pnSendKey.ResumeLayout(false);
+            this.pnSendKey.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbbKey)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbbModifierKey)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -402,10 +581,7 @@
 
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnAddStep;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel lbStepID;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel3;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel lbTaskName;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txbLinkApp;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txbLinkButtonImage;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel pnCommand;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txbCommand;
         private ComponentFactory.Krypton.Toolkit.KryptonRadioButton rbtnShutdown;
@@ -422,14 +598,32 @@
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel2;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
         private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette1;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel4;
         private ComponentFactory.Krypton.Toolkit.KryptonCheckBox cbCheckCondition;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnBrowserCondition;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txbLinkCondition;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel7;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel8;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel9;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnBrowserApp;
+        private System.Windows.Forms.Panel pnClick;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel10;
+        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox cbDoubleClick;
+        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox cbRightClick;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnBrowserImage;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txbLinkButtonImage;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel3;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel11;
+        private System.Windows.Forms.Panel pnOpenApp;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnBrowserApp;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel4;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txbLinkApp;
+        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton rbtnUseKeyboard;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel13;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel12;
+        private ComponentFactory.Krypton.Toolkit.KryptonPanel pnSendKey;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txbText;
+        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton rbtnText;
+        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton rbtnShortcutKey;
+        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbbKey;
+        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbbModifierKey;
     }
 }

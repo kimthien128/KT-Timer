@@ -51,7 +51,7 @@
     <StartupObject>KT_Timer_App.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>logo-KT-Studio-Yellow-02.ico</ApplicationIcon>
+    <ApplicationIcon>logo-KT-Studio-Yellow-06.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ComponentFactory.Krypton.Docking">
@@ -183,10 +183,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\logo KT Studio Yellow-02.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="logo-KT-Studio-Yellow-02.ico" />
+    <None Include="Resources\logo KT Studio Yellow-05.png" />
+    <None Include="Resources\logo KT Studio Yellow-06.png" />
     <None Include="Resources\icons8_settings_96px.png" />
     <None Include="Resources\icons8_save_96px.png" />
   </ItemGroup>
@@ -212,6 +210,10 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="logo-KT-Studio-Yellow-06.ico" />
+    <None Include="Resources\icons8_refresh_96px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
