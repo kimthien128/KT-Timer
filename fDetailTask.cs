@@ -125,6 +125,7 @@ namespace KT_Timer_App
                 btnDeleteStep.Enabled = false;
                 btnAddStep.Enabled = false;
             }
+            else btnAddStep.Enabled = true;
 
             //----------------------------------------------------
             childPanel.Controls.Add(panelContainTextbox);
@@ -134,13 +135,26 @@ namespace KT_Timer_App
         }
         public void btnEditStep_Click(object sender, EventArgs e)
         {
+            module.taskIDCurrent = taskID;
+            KryptonButton btn = (KryptonButton)sender;
 
+            fAddStep f = fAddStep.Instance();
+            f.Method = 2; //chế độ edit
+            f.SetStepID((int)btn.Tag);
+            f.ShowDialog();
+            UpdateUI();
+            fMain fMain = fMain.Instance();
+            fMain.UpdateUI();
         }
         public void btnDeleteStep_Click(object sender, EventArgs e)
         {
-            KryptonButton btn = (KryptonButton)sender;
-            steps.RemoveAt((int)btn.Tag);
-            UpdateUI();
+            DialogResult dr = MessageBox.Show("Do you want to delete the step?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (dr == DialogResult.OK)
+            {
+                KryptonButton btn = (KryptonButton)sender;
+                steps.RemoveAt((int)btn.Tag);
+                UpdateUI();
+            }
         }
 
         public void UpdateUI()
@@ -166,6 +180,7 @@ namespace KT_Timer_App
         {
             module.taskIDCurrent = taskID;
             fAddStep f = fAddStep.Instance();
+            f.Method = 1; //chế độ tạo mới
             f.ShowDialog();
             UpdateUI();
             fMain fMain = fMain.Instance();

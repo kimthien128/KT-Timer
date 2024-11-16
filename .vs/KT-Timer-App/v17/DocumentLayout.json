@@ -3,7 +3,11 @@
   "WorkspaceRootPath": "C:\\Users\\PC\\OneDrive\\Repos\\C#\\KT-Timer-App\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}|KT-Timer-App.csproj|C:\\Users\\PC\\OneDrive\\Repos\\C#\\KT-Timer-App\\faddstep.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}|KT-Timer-App.csproj|C:\\Users\\PC\\OneDrive\\Repos\\C#\\KT-Timer-App\\fmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}|KT-Timer-App.csproj|solutionrelative:fmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}|KT-Timer-App.csproj|c:\\users\\pc\\onedrive\\repos\\c#\\kt-timer-app\\faddstep.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}|KT-Timer-App.csproj|solutionrelative:faddstep.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -11,32 +15,28 @@
       "RelativeMoniker": "D:0:0:{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}|KT-Timer-App.csproj|solutionrelative:faddstep.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}|KT-Timer-App.csproj|C:\\Users\\PC\\OneDrive\\Repos\\C#\\KT-Timer-App\\actiontype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}|KT-Timer-App.csproj|solutionrelative:actiontype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}|KT-Timer-App.csproj|c:\\users\\pc\\onedrive\\repos\\c#\\kt-timer-app\\fmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}|KT-Timer-App.csproj|solutionrelative:fmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}|KT-Timer-App.csproj|C:\\Users\\PC\\OneDrive\\Repos\\C#\\KT-Timer-App\\fdetailtask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}|KT-Timer-App.csproj|solutionrelative:fdetailtask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}|KT-Timer-App.csproj|C:\\Users\\PC\\OneDrive\\Repos\\C#\\KT-Timer-App\\fmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}|KT-Timer-App.csproj|solutionrelative:fmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}|KT-Timer-App.csproj|C:\\Users\\PC\\OneDrive\\Repos\\C#\\KT-Timer-App\\module.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}|KT-Timer-App.csproj|solutionrelative:module.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}|KT-Timer-App.csproj|C:\\Users\\PC\\OneDrive\\Repos\\C#\\KT-Timer-App\\mytask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}|KT-Timer-App.csproj|solutionrelative:mytask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}|KT-Timer-App.csproj|C:\\Users\\PC\\OneDrive\\Repos\\C#\\KT-Timer-App\\step.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}|KT-Timer-App.csproj|solutionrelative:step.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}|KT-Timer-App.csproj|C:\\Users\\PC\\OneDrive\\Repos\\C#\\KT-Timer-App\\actiontype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}|KT-Timer-App.csproj|solutionrelative:actiontype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}|KT-Timer-App.csproj|C:\\Users\\PC\\OneDrive\\Repos\\C#\\KT-Timer-App\\module.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}|KT-Timer-App.csproj|solutionrelative:module.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}|KT-Timer-App.csproj|C:\\Users\\PC\\OneDrive\\Repos\\C#\\KT-Timer-App\\fdetailtask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}|KT-Timer-App.csproj|solutionrelative:fdetailtask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}|KT-Timer-App.csproj|C:\\Users\\PC\\OneDrive\\Repos\\C#\\KT-Timer-App\\fdetailtask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}|KT-Timer-App.csproj|solutionrelative:fdetailtask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}|KT-Timer-App.csproj|C:\\Users\\PC\\OneDrive\\Repos\\C#\\KT-Timer-App\\fmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}|KT-Timer-App.csproj|solutionrelative:fmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,11 +46,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "fMain.cs [Design]",
               "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Repos\\C#\\KT-Timer-App\\fMain.cs",
               "RelativeDocumentMoniker": "fMain.cs",
@@ -63,7 +63,21 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 8,
+              "Title": "fMain.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Repos\\C#\\KT-Timer-App\\fMain.cs",
+              "RelativeDocumentMoniker": "fMain.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Repos\\C#\\KT-Timer-App\\fMain.cs",
+              "RelativeToolTip": "fMain.cs",
+              "ViewState": "AQIAABgAAAAAAAAAAAA7wCkAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-17T12:59:54.304Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "fAddStep.cs [Design]",
               "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Repos\\C#\\KT-Timer-App\\fAddStep.cs",
               "RelativeDocumentMoniker": "fAddStep.cs",
@@ -76,91 +90,80 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "fDetailTask.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Repos\\C#\\KT-Timer-App\\fDetailTask.cs",
-              "RelativeDocumentMoniker": "fDetailTask.cs",
-              "ToolTip": "C:\\Users\\PC\\OneDrive\\Repos\\C#\\KT-Timer-App\\fDetailTask.cs [Design]",
-              "RelativeToolTip": "fDetailTask.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-14T13:03:28.011Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "fMain.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Repos\\C#\\KT-Timer-App\\fMain.cs",
-              "RelativeDocumentMoniker": "fMain.cs",
-              "ToolTip": "C:\\Users\\PC\\OneDrive\\Repos\\C#\\KT-Timer-App\\fMain.cs",
-              "RelativeToolTip": "fMain.cs",
-              "ViewState": "AQIAAB0BAAAAAAAAAAAQwCMBAAAWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T12:59:54.304Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Module.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Repos\\C#\\KT-Timer-App\\Module.cs",
-              "RelativeDocumentMoniker": "Module.cs",
-              "ToolTip": "C:\\Users\\PC\\OneDrive\\Repos\\C#\\KT-Timer-App\\Module.cs",
-              "RelativeToolTip": "Module.cs",
-              "ViewState": "AQIAABgAAAAAAAAAAAAcwDMAAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T13:22:29.902Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Step.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Repos\\C#\\KT-Timer-App\\Step.cs",
-              "RelativeDocumentMoniker": "Step.cs",
-              "ToolTip": "C:\\Users\\PC\\OneDrive\\Repos\\C#\\KT-Timer-App\\Step.cs",
-              "RelativeToolTip": "Step.cs",
-              "ViewState": "AQIAAAIAAAAAAAAAAAAYwBwAAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T12:40:37.692Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "fAddStep.cs",
               "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Repos\\C#\\KT-Timer-App\\fAddStep.cs",
               "RelativeDocumentMoniker": "fAddStep.cs",
               "ToolTip": "C:\\Users\\PC\\OneDrive\\Repos\\C#\\KT-Timer-App\\fAddStep.cs",
               "RelativeToolTip": "fAddStep.cs",
-              "ViewState": "AQIAALcAAAAAAAAAAAAEwM8AAAAwAAAA",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAKcAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-17T15:17:06.959Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ActionType.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Repos\\C#\\KT-Timer-App\\ActionType.cs",
-              "RelativeDocumentMoniker": "ActionType.cs",
-              "ToolTip": "C:\\Users\\PC\\OneDrive\\Repos\\C#\\KT-Timer-App\\ActionType.cs",
-              "RelativeToolTip": "ActionType.cs",
-              "ViewState": "AQIAABsAAAAAAAAAAAAkwBkAAAAvAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T15:16:49.996Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{6d4078d1-5951-4ed1-ac0e-0a8099c1cce5}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
+              "Title": "fDetailTask.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Repos\\C#\\KT-Timer-App\\fDetailTask.cs",
+              "RelativeDocumentMoniker": "fDetailTask.cs",
+              "ToolTip": "C:\\Users\\KeyTee\\OneDrive\\Repos\\C#\\KT-Timer-App\\fDetailTask.cs [Design]",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\KeyTee\\OneDrive\\Repos\\C#\\KT-Timer-App\\fDetailTask.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T13:03:28.011Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "fDetailTask.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Repos\\C#\\KT-Timer-App\\fDetailTask.cs",
+              "RelativeDocumentMoniker": "fDetailTask.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Repos\\C#\\KT-Timer-App\\fDetailTask.cs",
+              "RelativeToolTip": "fDetailTask.cs",
+              "ViewState": "AQIAAH8AAAAAAAAAAAAAAH0AAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-02T12:52:26.064Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "MyTask.cs",
               "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Repos\\C#\\KT-Timer-App\\MyTask.cs",
               "RelativeDocumentMoniker": "MyTask.cs",
               "ToolTip": "C:\\Users\\PC\\OneDrive\\Repos\\C#\\KT-Timer-App\\MyTask.cs",
               "RelativeToolTip": "MyTask.cs",
-              "ViewState": "AQIAABABAAAAAAAAAAAewCIBAAArAAAA",
+              "ViewState": "AQIAACYBAAAAAAAAAAAQwDcBAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-17T13:44:09.506Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Module.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Repos\\C#\\KT-Timer-App\\Module.cs",
+              "RelativeDocumentMoniker": "Module.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Repos\\C#\\KT-Timer-App\\Module.cs",
+              "RelativeToolTip": "Module.cs",
+              "ViewState": "AQIAAFIAAAAAAAAAAAAgwGgAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-05T12:16:56.9Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ActionType.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Repos\\C#\\KT-Timer-App\\ActionType.cs",
+              "RelativeDocumentMoniker": "ActionType.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Repos\\C#\\KT-Timer-App\\ActionType.cs",
+              "RelativeToolTip": "ActionType.cs",
+              "ViewState": "AQIAACoAAAAAAAAAAAAiwCsAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-17T15:16:49.996Z"
             }
           ]
         }

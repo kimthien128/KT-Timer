@@ -16,15 +16,18 @@ namespace KT_Timer_App
         private Module module = Module.Instance();
 
         public int TaskID {  get; set; }
-        public enum TypeAction { OpenApp, ClickButton, UseKeyboard, RunCommand }
+        public enum TypeAction { OpenApp, ClickButton, UseKeyboard, ShowMessage, RunCommand }
         public TypeAction Type { get; set; }
         public string AppPath { get; set; } // Dùng cho OpenApp
         public string ButtonImage { get; set; } // Dùng cho ClickButton
-        public EMouseKey eMouseKey { get; set; } // Dùng cho ClickButton, loại click chuột trái hay phải hay double
+        public int X { get; set; } // Dùng cho ClickButton
+        public int Y { get; set; } // Dùng cho ClickButton
+        public EMouseKey eMouseKey { get; set; } // Dùng cho ClickButton, 0: left, 1:right, 2:double left, 3: double right
         public enum TypeKeyboard { None, Shortcut, String}
         public TypeKeyboard KeyboardType { get; set; }
         public KeyCode[] keyCodes { get; set; }
         public string Text { get; set; }
+        public string Message { get; set; }
         public string Command { get; set; } // Dùng cho RunCommand
 
         public bool Execute()
@@ -64,6 +67,12 @@ namespace KT_Timer_App
                         AutoControl.SendStringFocus(Text);
                     }
                     break;
+                case TypeAction.ShowMessage:
+                    //thực hiện hiển thị message
+                    fMain.Instance().NotifyIconFMain.Icon = fMain.Instance().Icon; //phải có icon mới chạy được
+                    //fMain.Instance().NotifyIconFMain.Visible = true;
+                    fMain.Instance().NotifyIconFMain.ShowBalloonTip(5000, "Message", Message, ToolTipIcon.Info);
+                    break;
                 case TypeAction.RunCommand:
                     //làm phần hứng kết quả
                     ProcessStartInfo startInfo = new ProcessStartInfo("cmd.exe", "/c " + Command + " & pause");
@@ -81,7 +90,7 @@ namespace KT_Timer_App
             return result;
         }
         
-        public bool CheckImageExistAndClick(string imagePath, EMouseKey eClick)
+        private bool CheckImageExistAndClick(string imagePath, EMouseKey eClick)
         {
             //Cần copy toàn bộ file thư viện xử lý ảnh vào thư mục Debug
 
@@ -95,7 +104,7 @@ namespace KT_Timer_App
                 if (resBitmap != null)
                 {
                     //tìm thấy vùng con
-                    AutoControl.MouseClick(resBitmap.Value, eClick);
+                    AutoControl.MouseClick(resBitmap.Value.X + X, resBitmap.Value.Y + Y, eClick);
                     return true;
                 }
                 return false; //không tìm thấy vùng con

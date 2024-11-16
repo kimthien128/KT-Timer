@@ -22,6 +22,8 @@ namespace KT_Timer_App
         private Module module = Module.Instance();
         private DataHandle dataHandle = DataHandle.Instance();
 
+        public NotifyIcon NotifyIconFMain { get; set; }
+
         private static fMain instance;
         public static fMain Instance()
         {
@@ -31,6 +33,7 @@ namespace KT_Timer_App
         private fMain()
         {
             InitializeComponent();
+            NotifyIconFMain = notifyIcon1;
         }
         
         private void Main_Load(object sender, EventArgs e)
@@ -301,7 +304,7 @@ namespace KT_Timer_App
                 notifyIcon1.Icon = this.Icon;
                 this.ShowInTaskbar = false;
                 notifyIcon1.Visible = true;
-                notifyIcon1.Text = "The next task will start at: " + module.minStartDateTime.ToString("HH:mm:ss");
+                notifyIcon1.Text = "Next task : " + module.minStartDateTime.ToString("HH:mm:ss");
             }
         }
 
@@ -315,6 +318,14 @@ namespace KT_Timer_App
             }
         }
 
-        
+        private void showToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }
     }
 }

@@ -331,6 +331,9 @@ namespace KT_Timer_App
                 StartTime = newDate;
             }
 
+            //set lại minStartDateTime
+            module.SetMinStartDateTime();
+
             //thay đổi thời gian cho các step con
             SetStartTimeForChildStep();
 
@@ -433,8 +436,9 @@ namespace KT_Timer_App
         {
             module.taskIDCurrent = ID;
             fAddStep f = fAddStep.Instance();
+            f.Method = 1; //chế độ tạo mới
             f.ShowDialog();
-
+            
             fMain fMain = fMain.Instance();
             fMain.UpdateUI();
         }
