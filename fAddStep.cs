@@ -12,16 +12,20 @@ using System.Windows.Forms;
 using System.IO;
 using KAutoHelper;
 using static System.Net.Mime.MediaTypeNames;
+using static KT_Timer_App.Module;
+using System.Diagnostics;
 
 namespace KT_Timer_App
 {
     public partial class fAddStep : KryptonForm
     {
         private Module module = Module.Instance();
-        private List<MyTask> tasks = Module.Instance().Tasks;
+        private List<KTTask> tasks = Module.Instance().Tasks;
         private DataHandle dataHandle = DataHandle.Instance();
-
-        private int parentID;
+        //
+        private Process[] processArr {  get; set; }
+        //
+        private int taskID;
         private int stepID;
         private string nameStep;
         private DateTime startTimeStep;
@@ -29,21 +33,23 @@ namespace KT_Timer_App
         private string linkCondition;
         private ActionType actionType;
         private string contentAction;
+        //
         private OpenFileDialog openFileDialog = new OpenFileDialog();
-
         private bool isValid;
+        //
         public int Method { get; set; } //1: tạo mới , 2: cập nhật
         public void SetStepID(int stepId)
         {
             this.stepID = stepId;
         }
-
+        //
         private static fAddStep instance;
         public static fAddStep Instance()
         {
             if (instance == null) instance = new fAddStep();
             return instance;
         }
+
         private fAddStep()
         {
             InitializeComponent();
@@ -51,16 +57,58 @@ namespace KT_Timer_App
 
         private void fAddStep_Load(object sender, EventArgs e)
         {
-            parentID = module.taskIDCurrent;
+            taskID = module.taskIDCurrent;
 
-            lbParentTaskID.Text = "Task " + parentID.ToString();
-            lbTaskName.Text = Module.Instance().Tasks[parentID].Name;
+            lbParentTaskID.Text = "Task " + taskID.ToString();
+            lbTaskName.Text = Module.Instance().Tasks[taskID].Name;
+
+            //load process vào cbb
+            processArr = Process.GetProcesses();
+            cbbProcess.DataSource = processArr;
+            cbbProcess.DisplayMember = "ProcessName";
+            cbbProcess.ValueMember = "Id";
+            
 
             //load các giá trị cần thiết vào cbb dùng cho keyboard
-            //giá trị truyền vào là giá trị của enum KeyCode
-            module.LoadEnumValuesByRange(cbbKey, 48, 90);
-            module.LoadEnumValuesByRange(cbbKey, 112, 123);
-            module.LoadSelectedEnumValues(cbbModifierKey, KeyCode.ESC, KeyCode.SHIFT, KeyCode.CONTROL,KeyCode.LWIN,KeyCode.ALT);
+            List<KeyCodeItem> keycodeList = module.keyCodeList;
+            List<KeyCodeItem> keycodeSeleted1 = new List<KeyCodeItem>();
+            List<KeyCodeItem> keycodeSeleted2 = new List<KeyCodeItem>();
+            List<KeyCodeItem> keycodeSeleted3 = new List<KeyCodeItem>();
+
+            //tạo key empty trước
+            KeyCodeItem keyEmpty = new KeyCodeItem();
+            keyEmpty.NameKey = "";
+            keyEmpty.Value = -1;
+
+            //cbbKey1
+            keycodeSeleted1 = module.GetSelectedKeyCodeValues(27,16,17,18,91);
+            keycodeSeleted1.Insert(0, keyEmpty);
+            
+            cbbKey1.DataSource = keycodeSeleted1;
+            cbbKey1.DisplayMember = "NameKey";
+            cbbKey1.ValueMember = "KeyCode";
+
+            //cbbKey2
+            keycodeSeleted2 = module.GetSelectedKeyCodeValues(27, 16, 17, 18, 91);
+            keycodeSeleted2.Insert(0, keyEmpty);
+
+            cbbKey2.DataSource = keycodeSeleted2;
+            cbbKey2.DisplayMember = "NameKey";
+            cbbKey2.ValueMember = "KeyCode";
+
+            //cbbKey3
+            foreach (KeyCodeItem item in keycodeList)
+            {
+                if ( (item.Value >= 48 && item.Value <= 90) || (item.Value >= 112 && item.Value <= 123))
+                {
+                    keycodeSeleted3.Add(item);
+                }
+            }
+            keycodeSeleted3.Insert(0, keyEmpty);
+            cbbKey3.DataSource = keycodeSeleted3;
+            cbbKey3.DisplayMember = "NameKey";
+            cbbKey3.ValueMember = "KeyCode";
+
 
             //nếu là chế độ tạo mới
             if (Method == 1)
@@ -69,10 +117,10 @@ namespace KT_Timer_App
                 btnAddStep.Visible = true;
                 btnUpdateStep.Visible = false;
 
-                if (tasks[parentID].Steps == null)
+                if (tasks[taskID].Steps.Count == 0)
                     stepID = 0;
                 else
-                    stepID = tasks[parentID].Steps.Count;
+                    stepID = tasks[taskID].Steps.Count;
 
                 lbStepID.Text = "Step " + stepID;
 
@@ -83,9 +131,6 @@ namespace KT_Timer_App
                 rbtnOpenApp.Checked = true;
                 rbtnShortcutKey.Checked = true;
                 rbtnEnterCommand.Checked = true;
-
-                cbbModifierKey.SelectedIndex = 3; //WIN
-                cbbKey.SelectedIndex = 13; //D
             }
             //nếu là chế độ cập nhật
             else if (Method == 2)
@@ -94,11 +139,12 @@ namespace KT_Timer_App
                 btnAddStep.Visible = false;
                 btnUpdateStep.Visible = true;
 
-                Step s = tasks[parentID].Steps[stepID];
+                Step s = tasks[taskID].Steps[stepID];
 
                 txbStepName.Text = s.Name;
                 this.startTimeStep = s.StartTime;
-                //
+                
+                //ImageCondition
                 if (!string.IsNullOrEmpty(s.ImageCondition))
                 {
                     cbCheckCondition.Checked = true;
@@ -109,7 +155,8 @@ namespace KT_Timer_App
                     cbCheckCondition.Checked = false;
                     txbLinkCondition.Text = string.Empty;
                 }
-                //
+                
+                //AppPath
                 if (!string.IsNullOrEmpty(s.Action.AppPath))
                 {
                     rbtnOpenApp.Checked = true;
@@ -119,7 +166,19 @@ namespace KT_Timer_App
                 {
                     txbLinkApp.Text = string.Empty;
                 }
-                //
+
+                //ProcessName
+                if (!string.IsNullOrEmpty(s.Action.ProcessName))
+                {
+                    rbtnKillProcess.Checked = true;
+                    cbbProcess.SelectedIndex = SelectComboBoxByNameToIndex(cbbProcess,s.Action.ProcessName);
+                }
+                else
+                {
+                    cbbProcess.SelectedIndex = -1;
+                }
+
+                //ButtonImage
                 if (!string.IsNullOrEmpty(s.Action.ButtonImage))
                 {
                     rbtnClick.Checked = true;
@@ -154,20 +213,57 @@ namespace KT_Timer_App
                 {
                     txbLinkButtonImage.Text = string.Empty;
                 }
-                //
+                
+                //KeyboardType
                 switch ((int)s.Action.KeyboardType)
                 {
                     case 0: //none
-                        cbbModifierKey.SelectedIndex = -1;
-                        cbbKey.SelectedIndex = -1;
+                        cbbKey1.SelectedIndex = -1;
+                        cbbKey2.SelectedIndex = -1;
                         txbText.Text = string.Empty;
                         break;
                     case 1://shortcut
                         rbtnUseKeyboard.Checked = true;
                         rbtnShortcutKey.Checked = true;
-                        //đang gặp lỗi
-                        //cbbModifierKey.SelectedValue = s.Action.keyCodes[0];
-                        //cbbKey.SelectedValue = s.Action.keyCodes[1];
+                        short[] numbers = { 27, 16, 17, 18, 91 };
+                        //kiểm tra mảng có bao nhiêu phần tử
+                        switch (s.Action.keyCodes.Length)
+                        {
+                            case 1:
+                                short a1 = (short)s.Action.keyCodes[0];
+                                if (numbers.Contains(a1)) //kiểm tra nó có thuộc về cbb1 không
+                                {
+                                    cbbKey1.SelectedValue = s.Action.keyCodes[0];
+                                }
+                                else // nếu không thì chắc chắn là của ccb3
+                                {
+                                    cbbKey3.SelectedValue = s.Action.keyCodes[0];
+                                }
+                                break;
+                            case 2: // có 2 trường hợp 1-2, 1-3, vì 2-3 giống 1-3
+                                //vậy [0] chắc chắn của ccb1
+                                cbbKey1.SelectedValue = s.Action.keyCodes[0];
+
+                                //chỉ cần xét thằng số 2
+                                short b2 = (short)s.Action.keyCodes[1];
+                                //TH 1-2
+                                if (numbers.Contains(b2)) //kiểm tra nó có thuộc về cbb2 không
+                                {
+                                    cbbKey2.SelectedValue = s.Action.keyCodes[1];
+                                }
+                                else // nếu không thì chắc chắn là của ccb3
+                                {
+                                    cbbKey3.SelectedValue = s.Action.keyCodes[1];
+                                }
+                                break;
+                            case 3:
+                                cbbKey1.SelectedValue = s.Action.keyCodes[0];
+                                cbbKey2.SelectedValue = s.Action.keyCodes[1];
+                                cbbKey3.SelectedValue = s.Action.keyCodes[2];
+                                break;
+                            default:
+                                break;
+                        }
                         break;
                     case 2://string
                         rbtnUseKeyboard.Checked = true;
@@ -177,7 +273,8 @@ namespace KT_Timer_App
                     default:
                         break;
                 }
-                //
+                
+                //Message
                 if (!string.IsNullOrEmpty(s.Action.Message))
                 {
                     rbtnShowMessage.Checked = true;
@@ -187,7 +284,8 @@ namespace KT_Timer_App
                 {
                     txbMessage.Text = string.Empty;
                 }
-                //
+                
+                //Command
                 if (!string.IsNullOrEmpty(s.Action.Command))
                 {
                     rbtnExecuteCommand.Checked = true;
@@ -208,7 +306,28 @@ namespace KT_Timer_App
             }
 
         }
+        private int SelectComboBoxByNameToIndex(KryptonComboBox comboBox, string name)
+        {
+            for (int i = 0; i < comboBox.Items.Count; i++)
+            {
+                var item = comboBox.Items[i];
 
+                // Nếu sử dụng đối tượng, cần kiểm tra với thuộc tính Name
+                if (item is Process process && process.ProcessName == name)
+                {
+                    comboBox.SelectedIndex = i;
+                    return i;
+                }
+                // Nếu item là chuỗi hoặc kiểu khác, kiểm tra trực tiếp
+                //else 
+                //if (item.ToString() == name)
+                //{
+                //    comboBox.SelectedIndex = i;
+                //    return i;
+                //}
+            }
+            return -1;
+        }
         private bool Valid()
         {
             isValid = true;
@@ -243,9 +362,29 @@ namespace KT_Timer_App
                     {
                         Type = ActionType.TypeAction.OpenApp,
                         AppPath = txbLinkApp.Text,
-                        TaskID = parentID
+                        TaskID = taskID
                     };
                     contentAction = "Open app \"" + txbLinkApp.Text + "\"";
+                }
+            }
+            else if (rbtnKillProcess.Checked)
+            {
+                if(cbbProcess.SelectedValue == null)
+                {
+                    MessageBox.Show("Please select a process to close");
+                    isValid = false;
+                }
+                else
+                {
+
+                    actionType = new ActionType
+                    {
+                        Type = ActionType.TypeAction.KillProcess,
+                        ProcessName = cbbProcess.Text,
+                        //ProcessId = (int)cbbProcess.SelectedValue,
+                        TaskID = taskID
+                    };
+                    contentAction = "Kill process \"" + cbbProcess.Text + "_" + cbbProcess.SelectedValue + "\"";
                 }
             }
             else if(rbtnClick.Checked)
@@ -291,7 +430,7 @@ namespace KT_Timer_App
                         eMouseKey = eClick,
                         X = (int)nudX.Value,
                         Y = (int)nudY.Value,
-                        TaskID = parentID
+                        TaskID = taskID
                     };
 
                     contentAction = typeClick + " Click on button \"" + txbLinkButtonImage.Text + "\"";
@@ -302,18 +441,30 @@ namespace KT_Timer_App
                 //cần làm rõ nội dung chổ này thêm nữa, có thể tạo 1 actiontype ban đầu khi khởi tọa step, chỉ cần truyền tham số trong mỗi if
                 if(rbtnShortcutKey.Checked)
                 {
-                    
-                    actionType = new ActionType
-                    {
-                        Type = ActionType.TypeAction.UseKeyboard,
-                        KeyboardType = ActionType.TypeKeyboard.Shortcut,
-                        keyCodes = ((ushort)cbbModifierKey.SelectedValue == 9999)
-                            ? new KeyCode[] { (KeyCode)cbbKey.SelectedValue } // Nếu là 9999, chỉ thêm cbbKey
-                            : new KeyCode[] { (KeyCode)cbbModifierKey.SelectedValue, (KeyCode)cbbKey.SelectedValue }, // Ngược lại, thêm cả hai
-                        TaskID = parentID
-                    };
-                    contentAction = "Shortcut Key\"" + cbbModifierKey.SelectedValue.ToString() + ", " + cbbKey.Text + "\"";
+                    List<KeyCode> validValues = new List<KeyCode>();
+                    if((KeyCode)cbbKey1.SelectedValue > 0) 
+                        validValues.Add((KeyCode)cbbKey1.SelectedValue);
+                    if((KeyCode)cbbKey2.SelectedValue > 0) 
+                        validValues.Add((KeyCode)cbbKey2.SelectedValue);
+                    if((KeyCode)cbbKey3.SelectedValue > 0) 
+                        validValues.Add((KeyCode)cbbKey3.SelectedValue);
 
+                    if(validValues.Count <= 0)
+                    {
+                        MessageBox.Show("Please select shortcut key");
+                        isValid = false;
+                    }
+                    else
+                    {
+                        actionType = new ActionType
+                        {
+                            Type = ActionType.TypeAction.UseKeyboard,
+                            KeyboardType = ActionType.TypeKeyboard.Shortcut,
+                            keyCodes = validValues.ToArray(),
+                            TaskID = taskID
+                        };
+                        contentAction = "Shortcut Key : " + string.Join(" + ", validValues);
+                    }
                 }
                 else if (rbtnText.Checked)
                 {
@@ -322,7 +473,7 @@ namespace KT_Timer_App
                         Type = ActionType.TypeAction.UseKeyboard,
                         KeyboardType = ActionType.TypeKeyboard.String,
                         Text = txbText.Text,
-                        TaskID = parentID
+                        TaskID = taskID
                     };
                     contentAction = "Send Text \"" + txbText.Text + "\"";
                 }
@@ -340,7 +491,7 @@ namespace KT_Timer_App
                     {
                         Type = ActionType.TypeAction.ShowMessage,
                         Message = txbMessage.Text,
-                        TaskID = parentID
+                        TaskID = taskID
                     };
                     contentAction = "Show message \"" + txbMessage.Text + "\""; ;
                 }
@@ -360,7 +511,7 @@ namespace KT_Timer_App
                         {
                             Type = ActionType.TypeAction.RunCommand,
                             Command = txbCommand.Text,
-                            TaskID = parentID
+                            TaskID = taskID
                         };
                         contentAction = "Execute command \"" + txbCommand.Text + "\""; ;
                     }
@@ -371,7 +522,7 @@ namespace KT_Timer_App
                     {
                         Type = ActionType.TypeAction.RunCommand,
                         Command = "shutdown -s -t 0",
-                        TaskID = parentID
+                        TaskID = taskID
                     };
                     contentAction = "Shutdown computer";
                 }
@@ -385,13 +536,10 @@ namespace KT_Timer_App
             if (Valid())
             {
                 condition = cbCheckCondition.Checked;
-                startTimeStep = tasks[parentID].StartTime.AddSeconds(tasks[parentID].WaitingTime * stepID);
-                Step step = new Step(parentID, stepID, nameStep, startTimeStep, condition, linkCondition, actionType, contentAction);
+                startTimeStep = tasks[taskID].StartTime.AddSeconds(tasks[taskID].WaitingTime * stepID);
+                Step step = new Step(taskID, stepID, nameStep, startTimeStep, condition, linkCondition, actionType, contentAction);
 
-                if (tasks[parentID].Steps == null)
-                    tasks[parentID].Steps = new List<Step>();
-
-                tasks[parentID].Steps.Add(step);
+                tasks[taskID].Steps.Add(step);
 
                 //reset trạng thái 1 số btn
                 txbStepName.Text = string.Empty;
@@ -400,7 +548,7 @@ namespace KT_Timer_App
                 txbMessage.Text = string.Empty;
 
                 //Thêm step xong thì lưu data
-                dataHandle.GhiDuLieu(module.Tasks);
+                dataHandle.WriteData(module.Tasks);
 
                 this.Close();
             }
@@ -410,9 +558,9 @@ namespace KT_Timer_App
             if (Valid())
             {
                 condition = cbCheckCondition.Checked;
-                Step step = new Step(parentID, stepID, nameStep, startTimeStep, condition, linkCondition, actionType, contentAction);
+                Step step = new Step(taskID, stepID, nameStep, startTimeStep, condition, linkCondition, actionType, contentAction);
 
-                tasks[parentID].Steps[stepID] = step;
+                tasks[taskID].Steps[stepID] = step;
 
                 //reset trạng thái 1 số btn
                 txbStepName.Text = string.Empty;
@@ -421,7 +569,7 @@ namespace KT_Timer_App
                 txbMessage.Text = string.Empty;
 
                 //cập nhật step xong thì lưu data
-                dataHandle.GhiDuLieu(module.Tasks);
+                dataHandle.WriteData(module.Tasks);
 
                 this.Close();
             }
@@ -435,15 +583,25 @@ namespace KT_Timer_App
         private void rbtnOpenApp_CheckedChanged(object sender, EventArgs e)
         {
             pnOpenApp.Enabled = true;
+            pnKillProcess.Enabled = false;
             pnClick.Enabled = false;
             pnUseKeyboard.Enabled = false;
             txbMessage.Enabled = false;
             pnCommand.Enabled = false;
         }
-
+        private void rbtnKillProcess_CheckedChanged(object sender, EventArgs e)
+        {
+            pnOpenApp.Enabled = false;
+            pnKillProcess.Enabled = true;
+            pnClick.Enabled = false;
+            pnUseKeyboard.Enabled = false;
+            txbMessage.Enabled = false;
+            pnCommand.Enabled = false;
+        }
         private void rbtnClick_CheckedChanged(object sender, EventArgs e)
         {
             pnOpenApp.Enabled = false;
+            pnKillProcess.Enabled = false;
             pnClick.Enabled = true;
             pnUseKeyboard.Enabled = false;
             txbMessage.Enabled = false;
@@ -452,6 +610,7 @@ namespace KT_Timer_App
         private void rbtnUseKeyboard_CheckedChanged(object sender, EventArgs e)
         {
             pnOpenApp.Enabled = false;
+            pnKillProcess.Enabled = false;
             pnClick.Enabled = false;
             pnUseKeyboard.Enabled = true;
             txbMessage.Enabled = false;
@@ -468,6 +627,7 @@ namespace KT_Timer_App
         private void rbtnExecuteCommand_CheckedChanged(object sender, EventArgs e)
         {
             pnOpenApp.Enabled = false;
+            pnKillProcess.Enabled = false;
             pnClick.Enabled = false;
             pnUseKeyboard.Enabled = false;
             txbMessage.Enabled = false;
@@ -476,13 +636,15 @@ namespace KT_Timer_App
         private void rbtnShortcutKey_CheckedChanged(object sender, EventArgs e)
         {
             txbText.Enabled = false;
-            cbbModifierKey.Enabled = true;
-            cbbKey.Enabled = true;
+            cbbKey1.Enabled = true;
+            cbbKey2.Enabled = true;
+            cbbKey3.Enabled = true;
         }
         private void rbtnText_CheckedChanged(object sender, EventArgs e)
         {
-            cbbModifierKey.Enabled = false;
-            cbbKey.Enabled = false;
+            cbbKey1.Enabled = false;
+            cbbKey2.Enabled = false;
+            cbbKey3.Enabled = false;
             txbText.Enabled = true;
         }
         private void rbtnShutdown_CheckedChanged(object sender, EventArgs e)
@@ -558,5 +720,6 @@ namespace KT_Timer_App
             }
         }
 
+        
     }
 }

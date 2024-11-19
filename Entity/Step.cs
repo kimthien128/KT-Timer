@@ -9,7 +9,7 @@ namespace KT_Timer_App
 {
     internal class Step
     {
-        public int ParentID {  get; set; }
+        public int TaskID {  get; set; }
         public int ID { get; set; }
         public string Name { get; set; } //Tên step cần thực hiện
         public DateTime StartTime { get; set; }
@@ -18,9 +18,9 @@ namespace KT_Timer_App
         public ActionType Action { get; set; }
         public string ActionDescription { get; set; }
         public bool IsComplete { get; set; } // trạng thái hoàn thành hay chưa
-        public Step (int parentID, int id, string name, DateTime startTime, bool condition, string linkCondition, ActionType type, string actionDescription)
+        public Step (int taskID, int id, string name, DateTime startTime, bool condition, string linkCondition, ActionType type, string actionDescription)
         {
-            this.ParentID = parentID;
+            this.TaskID = taskID;
             this.ID = id;
             this.Name = name;
             this.StartTime = startTime;

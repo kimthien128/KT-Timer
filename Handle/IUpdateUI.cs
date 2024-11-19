@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KT_Timer_App
 {
-    internal interface IUpdatableForm
+    internal interface IUpdateUI
     {
         void UpdateUI();
     }

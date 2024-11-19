@@ -1,5 +1,7 @@
 ﻿using ComponentFactory.Krypton.Toolkit;
 using KAutoHelper;
+using KT_Timer_App.Entity;
+using KT_Timer_App.Handle;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,13 +19,17 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace KT_Timer_App
 {
-    public partial class fMain : KryptonForm, IUpdatableForm
+    public partial class fMain : KryptonForm, IUpdateUI
     {
         private Module module = Module.Instance();
         private DataHandle dataHandle = DataHandle.Instance();
+        private LogHandle logHandle = LogHandle.Instance();
+        private fAbout formAbout = fAbout.Instance();
 
         public NotifyIcon NotifyIconFMain { get; set; }
+        private ToolTip toolTipFMain;
 
+        //
         private static fMain instance;
         public static fMain Instance()
         {
@@ -34,15 +40,29 @@ namespace KT_Timer_App
         {
             InitializeComponent();
             NotifyIconFMain = notifyIcon1;
+            logHandle.LoadLog();
+            //dgvLog.DataSource = logHandle.GetLogList();
+            toolTipFMain = new ToolTip();
+            toolTipFMain.SetToolTip(pbShowLogTable, "Show/Hide Log Table");
+            toolTipFMain.SetToolTip(pbClearLog, "Clear Log");
+            toolTipFMain.SetToolTip(pbRefreshUI, "Refresh UI");
+            toolTipFMain.SetToolTip(pbSaveData, "Save data");
+            toolTipFMain.SetToolTip(pbLogo, "About");
+
+            //mới khởi tạo thì ẩn panel log
+            pnLog.Visible = false;
+
+            //không cho chọn thời gian ở quá khứ
+            dtpTaskStartTime.MinDate = DateTime.Today;
         }
         
         private void Main_Load(object sender, EventArgs e)
         {
             timerLbTimeNow.Start();
-            module.Tasks = dataHandle.DocDuLieu();
+            module.Tasks = dataHandle.ReadData();
             //load form lên, nếu trong data có 1 task nào ở quá khứ mà không repeat thì gán cho là hoàn thành
             //tiện thể truyền fMain vào cho các task con nhận giá trị để dễ gọi
-            foreach (MyTask task in module.Tasks)
+            foreach (KTTask task in module.Tasks)
             {
                 //check minStartTime lần đầu
                 if (task.StartTime <= module.minStartDateTime)
@@ -91,8 +111,6 @@ namespace KT_Timer_App
         {
             lbTimeNow.Text = DateTime.Now.ToString("dd/MM/yyyy | HH:mm:ss");
 
-            module.WriteLog(txbLog); // log chỉ write khi có thay đổi nên để mỗi tick không sao
-
             //ở đây chỉ check minStartDateTime rồi cập nhật cho module, trong mỗi task tự kiểm tra
             //nếu gần tới thời gian chạy của task gần nhất thì mới kiểm tra, thực hiện, xóa các kiểu, tránh tốn chi phí vòng for
             if (DateTime.Now >= module.minStartDateTime)
@@ -113,7 +131,7 @@ namespace KT_Timer_App
                         module.minStartDateTime = DateTime.MaxValue;
 
                         //chạy xong thì lưu data
-                        dataHandle.GhiDuLieu(module.Tasks);
+                        dataHandle.WriteData(module.Tasks);
 
                         break;
                     }
@@ -146,22 +164,33 @@ namespace KT_Timer_App
                 module.minStartDateTime = dtpTaskStartTime.Value;
             }
 
-            MyTask task = new MyTask(taskID,taskName, taskStartTime);
+            KTTask task = new KTTask(taskID,taskName, taskStartTime);
             task.SelectFormMain(this); //set form main để bên trong class biết cha của nó
             module.Tasks.Add(task);
             UpdateUI();
 
             //tạo task xong thì lưu data
-            dataHandle.GhiDuLieu(module.Tasks);
+            dataHandle.WriteData(module.Tasks);
         }
         public void UpdateUI()
         {
             flpTaskList.Controls.Clear();
             UpdateIndexes(0);
-            foreach (MyTask task in module.Tasks)
+            foreach (KTTask task in module.Tasks)
             {
                 KryptonPanel childPanel = task.CreatePanel();
                 flpTaskList.Controls.Add(childPanel);
+            }
+
+            RefreshLogTableUI();
+        }
+        public void RefreshLogTableUI()
+        {
+            // Refresh lại DataGridView
+            dgvLog.DataSource = logHandle.GetLogList();
+            if (dgvLog.Rows.Count > 0)
+            {
+                dgvLog.CurrentCell = dgvLog.Rows[0].Cells[0]; // luôn chọn hàng đầu tiên
             }
         }
         private void UpdateIndexes(int startIndex)
@@ -180,7 +209,7 @@ namespace KT_Timer_App
         private void RunTask(int taskID)
         {
             // Kiểm tra nếu task có các bước (steps) cần thực hiện
-            if (module.Tasks[taskID].Steps != null && module.Tasks[taskID].Steps.Count > 0)
+            if (module.Tasks[taskID].Steps.Count > 0)
             {
                 if (module.Tasks[taskID].IsComplete) return;
 
@@ -209,7 +238,7 @@ namespace KT_Timer_App
                             // Kiểm tra sự tồn tại của hình ảnh (image condition)
                             if (!CheckImageExist(taskID, step.ImageCondition))
                             {
-                                module.log = $"{DateTime.Now} | Task: {taskID} | Hình ảnh \"{step.ImageCondition}\" không tồn tại" + Environment.NewLine;
+                                logHandle.AddLog(taskID,$"Hình ảnh \"{step.ImageCondition}\" không tồn tại");
                                 checkOk = false;
                             }
                         }
@@ -275,21 +304,41 @@ namespace KT_Timer_App
             }
             else
             {
-                module.log = $"{DateTime.Now} | Task: {taskID} | Hình ảnh \"{imagePath}\" không tồn tại";
+                logHandle.AddLog(taskID, $"Hình ảnh \"{imagePath}\" không tồn tại");
                 return false;
             }
         }
 
         private void pbSaveData_Click(object sender, EventArgs e)
         {
-            dataHandle.GhiDuLieu(module.Tasks);
+            dataHandle.WriteData(module.Tasks);
         }
-
         private void pbRefreshUI_Click(object sender, EventArgs e)
         {
-            this.UpdateUI();
+            UpdateUI();
         }
-        
+        private void pbClearLog_Click(object sender, EventArgs e)
+        {
+            logHandle.ClearLog();
+        }
+        private void pbShowTableLog_Click(object sender, EventArgs e)
+        {
+            if (pnLog.Visible)
+            {
+                pnLog.Visible = false;
+                pbShowLogTable.Image = Properties.Resources.icons8_closed_eye_96px;
+            }
+            else
+            {
+                pnLog.Visible = true;
+                pbShowLogTable.Image = Properties.Resources.icons8_eye_96px;
+            }
+        }
+        private void pbLogo_Click(object sender, EventArgs e)
+        {
+            formAbout.ShowDialog();
+        }
+
         /// <summary>
         /// Set icon and info on TaskBar
         /// </summary>
@@ -327,5 +376,7 @@ namespace KT_Timer_App
         {
             System.Windows.Forms.Application.Exit();
         }
+
+        
     }
 }

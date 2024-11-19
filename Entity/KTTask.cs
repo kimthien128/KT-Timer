@@ -1,4 +1,6 @@
 ﻿using ComponentFactory.Krypton.Toolkit;
+using Emgu.CV.Dnn;
+using KT_Timer_App.Handle;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -8,13 +10,15 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace KT_Timer_App
 {
-    internal class MyTask
+    internal class KTTask
     {
         private Module module = Module.Instance();
         private DataHandle dataHandle = DataHandle.Instance();
+        private LogHandle logHandle = LogHandle.Instance();
 
         public int ID { get; set; }
         public string Name { get; set; }
@@ -29,17 +33,18 @@ namespace KT_Timer_App
         private KryptonLabel lbRemaining;
         private KryptonCheckBox cbRepeat;
         private KryptonNumericUpDown nudWaitingTime;
-        private IUpdatableForm fMain;
+        private IUpdateUI fMain;
         private Color bgColor = Color.FromArgb(217, 235, 255);
         private Color textColor = Color.FromArgb(0, 0, 0);
         private Color mainColor = Color.FromArgb(0, 122, 255);
         private Color successColor = Color.FromArgb(52, 199, 89);
         private Color failureColor = Color.FromArgb(255, 59, 48);
-        public MyTask(int id, string name, DateTime startTime)
+        public KTTask(int id, string name, DateTime startTime)
         {
             this.ID = id;
             this.Name = name;
             this.StartTime = startTime;
+            this.Steps = new List<Step>();
             IsSuccess = false;
             IsComplete = false;
         }
@@ -71,6 +76,15 @@ namespace KT_Timer_App
             lbTaskName.MinimumSize = new Size(150, 0);
             lbTaskName.Dock = DockStyle.Bottom;
             //
+            PictureBox pbEditName = new PictureBox();
+            pbEditName.Size = new Size(25,25);
+            pbEditName.SizeMode = PictureBoxSizeMode.Zoom;
+            pbEditName.Image = Properties.Resources.icons8_edit_80px;
+            pbEditName.Dock = DockStyle.Right;
+            pbEditName.Cursor = Cursors.Hand;
+            pbEditName.Click += PbEditName_Click;
+
+            //
             KryptonPanel panelContainStatus = new KryptonPanel();
             panelContainStatus.Dock = DockStyle.Bottom;
             panelContainStatus.Height = 20;
@@ -97,6 +111,7 @@ namespace KT_Timer_App
             panelContainStatus.Controls.Add(btnShowStatus);
 
             panelContainName.Controls.Add(lbTaskName);
+            panelContainName.Controls.Add(pbEditName);
             panelContainName.Controls.Add(panelContainStatus);
 
             //----------------------------------------------------
@@ -113,7 +128,14 @@ namespace KT_Timer_App
             lbStartTime.AutoSize = true;
             lbStartTime.MinimumSize = new Size(100, 0);
             lbStartTime.MaximumSize = new Size(100, 0);
-
+            //
+            PictureBox pbEditStarTime = new PictureBox();
+            pbEditStarTime.Size = new Size(25, 25);
+            pbEditStarTime.SizeMode = PictureBoxSizeMode.Zoom;
+            pbEditStarTime.Image = Properties.Resources.icons8_edit_80px;
+            pbEditStarTime.Dock = DockStyle.Right;
+            pbEditStarTime.Cursor = Cursors.Hand;
+            pbEditStarTime.Click += PbEditStarTime_Click;
             //
             cbRepeat = new KryptonCheckBox();
             cbRepeat.Text = "Repeat everyday";
@@ -123,6 +145,7 @@ namespace KT_Timer_App
             cbRepeat.CheckedChanged += CbRepeat_CheckedChanged;
 
             panelContainDateTime.Controls.Add(lbStartTime);
+            panelContainDateTime.Controls.Add(pbEditStarTime);
             panelContainDateTime.Controls.Add(cbRepeat);
 
             //----------------------------------------------------
@@ -147,7 +170,7 @@ namespace KT_Timer_App
             lbStep.Dock = DockStyle.Top;
             lbStep.LabelStyle = LabelStyle.GroupBoxCaption;
 
-            if (this.Steps == null || this.Steps.Count == 0)
+            if (this.Steps.Count == 0)
             {
                 lbStep.Text = "0 steps";
                 lbStep.StateNormal.ShortText.Color1 = Color.FromArgb(127, 127, 133);
@@ -241,7 +264,7 @@ namespace KT_Timer_App
             btnRunNow.Click += new EventHandler(btnRunNow_Click);
             btnRunNow.PaletteMode = PaletteMode.Office2007Blue;
             btnRunNow.Enabled = false;
-            if(Steps != null ) btnRunNow.Enabled = true;
+            if(Steps.Count > 0) btnRunNow.Enabled = true;
 
             //
             KryptonButton btnReEnable = new KryptonButton();
@@ -285,6 +308,8 @@ namespace KT_Timer_App
             {
                 // Thêm Strikethrough vào FontStyle hiện tại của label1
                 lbTaskName.StateNormal.ShortText.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Regular | FontStyle.Strikeout);
+                pbEditName.Visible = false;
+                pbEditStarTime.Visible = false;
                 lbRemaining.Text = "     Time out";
                 panelContainDateTime.Enabled = false;
                 panelContainRemaining.Enabled = false;
@@ -304,6 +329,54 @@ namespace KT_Timer_App
             
 
             return childPanel;
+        }
+
+
+        private void PbEditName_Click(object sender, EventArgs e)
+        {
+            fEditInfoDialog dialog = fEditInfoDialog.Instance();
+            dialog.TaskID = ID;
+            dialog.NewName = Name;
+            dialog.NewStartTime = StartTime;
+            dialog.Method = 1;
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                // Lấy giá trị từ dialog và cập nhật
+                Name = dialog.NewName;
+                logHandle.AddLog(ID, dialog.Status);
+
+                //thay đổi xong thì lưu data
+                dataHandle.WriteData(module.Tasks);
+
+                fMain fMain = fMain.Instance();
+                fMain.UpdateUI();
+            }
+        }
+        private void PbEditStarTime_Click(object sender, EventArgs e)
+        {
+            fEditInfoDialog dialog = fEditInfoDialog.Instance();
+            dialog.TaskID = ID;
+            dialog.NewName = Name;
+            dialog.NewStartTime = StartTime;
+            dialog.Method = 2;
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                // Lấy giá trị từ dialog và cập nhật
+                StartTime = dialog.NewStartTime;
+                logHandle.AddLog(ID, dialog.Status);
+
+                //set lại minStartDateTime
+                module.SetMinStartDateTime();
+
+                //thay đổi thời gian cho các step con
+                SetStartTimeForChildStep();
+
+                //thay đổi xong thì lưu data
+                dataHandle.WriteData(module.Tasks);
+
+                fMain fMain = fMain.Instance();
+                fMain.UpdateUI();
+            }
         }
 
         private void btnReEnable_Click(object sender, EventArgs e)
@@ -338,7 +411,7 @@ namespace KT_Timer_App
             SetStartTimeForChildStep();
 
             //thay đổi xong thì lưu data
-            dataHandle.GhiDuLieu(module.Tasks);
+            dataHandle.WriteData(module.Tasks);
 
             fMain fMain = fMain.Instance();
             fMain.UpdateUI();
@@ -361,7 +434,7 @@ namespace KT_Timer_App
             SetStartTimeForChildStep();
 
             //thay đổi xong thì lưu data
-            dataHandle.GhiDuLieu(module.Tasks);
+            dataHandle.WriteData(module.Tasks);
 
             fMain fMain = fMain.Instance();
             fMain.UpdateUI();
@@ -372,19 +445,19 @@ namespace KT_Timer_App
             Repeat = cbRepeat.Checked;
 
             //thay đổi xong thì lưu data
-            dataHandle.GhiDuLieu(module.Tasks);
+            dataHandle.WriteData(module.Tasks);
         }
 
         private void NudWaitingTime_ValueChanged(object sender, EventArgs e)
         {
             WaitingTime = (int)nudWaitingTime.Value;
-            module.log = $"{DateTime.Now} | Task: {ID} | Set Time Interval = {nudWaitingTime.Value}";
+            logHandle.AddLog(ID, "Set Time Interval = " + nudWaitingTime.Value);
 
             //thay đổi timeStart của từng step con
             SetStartTimeForChildStep();
 
             //thay đổi xong thì lưu data
-            dataHandle.GhiDuLieu(module.Tasks);
+            dataHandle.WriteData(module.Tasks);
         }
 
         private void timer_Tick(object sender, EventArgs e)
@@ -419,7 +492,7 @@ namespace KT_Timer_App
                         SetStartTimeForChildStep();
 
                         //thay đổi xong thì lưu data
-                        dataHandle.GhiDuLieu(module.Tasks);
+                        dataHandle.WriteData(module.Tasks);
 
                         fMain fMain = fMain.Instance();
                         fMain.UpdateUI();
@@ -453,7 +526,7 @@ namespace KT_Timer_App
             }
             
             //xóa task xong thì lưu data
-            dataHandle.GhiDuLieu(module.Tasks);
+            dataHandle.WriteData(module.Tasks);
         }
         private void btnViewDetailStep_Click(object sender, EventArgs e)
         {
@@ -467,7 +540,7 @@ namespace KT_Timer_App
         
         private void SetStartTimeForChildStep()
         {
-            if (Steps != null && Steps.Count > 0)
+            if (Steps.Count > 0)
             {
                 for (int i = 0; i < Steps.Count; i++)
                 {
@@ -478,7 +551,7 @@ namespace KT_Timer_App
 
         private void SetIsCompleteForChildStep()
         {
-            if (Steps != null && Steps.Count > 0)
+            if (Steps.Count > 0)
             {
                 foreach (Step s in module.Tasks[ID].Steps)
                 {

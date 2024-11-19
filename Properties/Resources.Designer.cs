@@ -63,6 +63,46 @@ namespace KT_Timer_App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_broom_96px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_broom_96px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_closed_eye_96px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_closed_eye_96px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_edit_80px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_edit_80px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_eye_96px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_eye_96px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_refresh_96px {
             get {
                 object obj = ResourceManager.GetObject("icons8_refresh_96px", resourceCulture);
@@ -106,6 +146,16 @@ namespace KT_Timer_App.Properties {
         internal static System.Drawing.Bitmap logo_KT_Studio_Yellow_06 {
             get {
                 object obj = ResourceManager.GetObject("logo_KT_Studio_Yellow_06", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap QR_Sacombank {
+            get {
+                object obj = ResourceManager.GetObject("QR_Sacombank", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

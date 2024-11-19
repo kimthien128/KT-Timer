@@ -1,4 +1,5 @@
 ﻿using KAutoHelper;
+using KT_Timer_App.Handle;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -14,11 +15,14 @@ namespace KT_Timer_App
     internal class ActionType
     {
         private Module module = Module.Instance();
+        private LogHandle logHandle = LogHandle.Instance();
 
         public int TaskID {  get; set; }
-        public enum TypeAction { OpenApp, ClickButton, UseKeyboard, ShowMessage, RunCommand }
+        public enum TypeAction { OpenApp, KillProcess, ClickButton, UseKeyboard, ShowMessage, RunCommand }
         public TypeAction Type { get; set; }
         public string AppPath { get; set; } // Dùng cho OpenApp
+        public string ProcessName { get; set; } // Dùng cho KillProcess
+        //public int ProcessId { get; set; } // Dùng cho KillProcess
         public string ButtonImage { get; set; } // Dùng cho ClickButton
         public int X { get; set; } // Dùng cho ClickButton
         public int Y { get; set; } // Dùng cho ClickButton
@@ -29,7 +33,7 @@ namespace KT_Timer_App
         public string Text { get; set; }
         public string Message { get; set; }
         public string Command { get; set; } // Dùng cho RunCommand
-
+        
         public bool Execute()
         {
             bool result = true;
@@ -47,7 +51,17 @@ namespace KT_Timer_App
                     }
                     
                     break;
-
+                case TypeAction.KillProcess:
+                    try
+                    {
+                        Process[] processToKill = Process.GetProcessesByName(ProcessName);
+                        processToKill[0].Kill(); //kill đứa đầu tiên tìm thấy
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Can not kill process: {ex.Message}");
+                    }
+                    break;
                 case TypeAction.ClickButton:
                     // Thực hiện logic nhấn nút
                     if (!CheckImageExistAndClick(ButtonImage, eMouseKey))
@@ -111,7 +125,7 @@ namespace KT_Timer_App
             }
             else
             {
-                module.log = $"{DateTime.Now} | Task: {TaskID} | Hình ảnh \"{imagePath}\" không tồn tại" + Environment.NewLine;
+                logHandle.AddLog(TaskID, $"Hình ảnh \"{imagePath}\" không tồn tại");
                 return false;
             }
         }

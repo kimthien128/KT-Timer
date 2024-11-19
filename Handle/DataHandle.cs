@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using Newtonsoft.Json;
+using System.ComponentModel;
+using KT_Timer_App.Entity;
 
 namespace KT_Timer_App
 {
@@ -20,17 +22,17 @@ namespace KT_Timer_App
         }
 
         private DataHandle() { }
-        public List<MyTask> DocDuLieu()
+        public List<KTTask> ReadData()
         {
             if(!File.Exists(filepath))
             {
-                return new List<MyTask>();
+                return new List<KTTask>();
             }
             var jsonData = File.ReadAllText(filepath);
-            return JsonConvert.DeserializeObject<List<MyTask>>(jsonData);
+            return JsonConvert.DeserializeObject<List<KTTask>>(jsonData);
         }
 
-        public void GhiDuLieu(List<MyTask> tasksList)
+        public void WriteData(List<KTTask> tasksList)
         {
             var jsonData = JsonConvert.SerializeObject(tasksList);
             File.WriteAllText(filepath, jsonData);

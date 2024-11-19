@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace KT_Timer_App
 {
-    public partial class fDetailTask : KryptonForm, IUpdatableForm
+    public partial class fDetailTask : KryptonForm, IUpdateUI
     {
         private Module module = Module.Instance();
-        private List<MyTask> tasks = Module.Instance().Tasks;
+        private List<KTTask> tasks = Module.Instance().Tasks;
 
         private int taskID;
         private List<Step> steps;
