@@ -1,0 +1,81 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KT-Timer-App", "KT-Timer-App.csproj", "{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}"
+EndProject
+Project("{840C416C-B8F3-42BC-B0DD-F6BB14C9F8CB}") = "Setup", "..\Setup\Setup.aiproj", "{DB1D3525-1ABF-438A-9701-1FF236CD92EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		All|Any CPU = All|Any CPU
+		All|x64 = All|x64
+		All|x86 = All|x86
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		DefaultBuild|Any CPU = DefaultBuild|Any CPU
+		DefaultBuild|x64 = DefaultBuild|x64
+		DefaultBuild|x86 = DefaultBuild|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}.All|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}.All|Any CPU.Build.0 = Debug|Any CPU
+		{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}.All|x64.ActiveCfg = Debug|x64
+		{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}.All|x64.Build.0 = Debug|x64
+		{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}.All|x86.ActiveCfg = Debug|x86
+		{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}.All|x86.Build.0 = Debug|x86
+		{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}.Debug|x64.ActiveCfg = Debug|x64
+		{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}.Debug|x64.Build.0 = Debug|x64
+		{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}.Debug|x86.ActiveCfg = Debug|x86
+		{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}.Debug|x86.Build.0 = Debug|x86
+		{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}.DefaultBuild|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}.DefaultBuild|Any CPU.Build.0 = Debug|Any CPU
+		{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}.DefaultBuild|x64.ActiveCfg = Debug|x64
+		{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}.DefaultBuild|x64.Build.0 = Debug|x64
+		{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}.DefaultBuild|x86.ActiveCfg = Debug|x86
+		{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}.DefaultBuild|x86.Build.0 = Debug|x86
+		{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}.Release|x64.ActiveCfg = Release|x64
+		{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}.Release|x64.Build.0 = Release|x64
+		{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}.Release|x86.ActiveCfg = Release|x86
+		{2C48FD3D-4D19-478A-BDCC-3992DE57DF82}.Release|x86.Build.0 = Release|x86
+		{DB1D3525-1ABF-438A-9701-1FF236CD92EB}.All|Any CPU.ActiveCfg = DefaultBuild
+		{DB1D3525-1ABF-438A-9701-1FF236CD92EB}.All|Any CPU.Build.0 = DefaultBuild
+		{DB1D3525-1ABF-438A-9701-1FF236CD92EB}.All|x64.ActiveCfg = DefaultBuild
+		{DB1D3525-1ABF-438A-9701-1FF236CD92EB}.All|x64.Build.0 = DefaultBuild
+		{DB1D3525-1ABF-438A-9701-1FF236CD92EB}.All|x86.ActiveCfg = DefaultBuild
+		{DB1D3525-1ABF-438A-9701-1FF236CD92EB}.All|x86.Build.0 = DefaultBuild
+		{DB1D3525-1ABF-438A-9701-1FF236CD92EB}.Debug|Any CPU.ActiveCfg = DefaultBuild
+		{DB1D3525-1ABF-438A-9701-1FF236CD92EB}.Debug|Any CPU.Build.0 = DefaultBuild
+		{DB1D3525-1ABF-438A-9701-1FF236CD92EB}.Debug|x64.ActiveCfg = DefaultBuild
+		{DB1D3525-1ABF-438A-9701-1FF236CD92EB}.Debug|x64.Build.0 = DefaultBuild
+		{DB1D3525-1ABF-438A-9701-1FF236CD92EB}.Debug|x86.ActiveCfg = DefaultBuild
+		{DB1D3525-1ABF-438A-9701-1FF236CD92EB}.Debug|x86.Build.0 = DefaultBuild
+		{DB1D3525-1ABF-438A-9701-1FF236CD92EB}.DefaultBuild|Any CPU.ActiveCfg = DefaultBuild
+		{DB1D3525-1ABF-438A-9701-1FF236CD92EB}.DefaultBuild|Any CPU.Build.0 = DefaultBuild
+		{DB1D3525-1ABF-438A-9701-1FF236CD92EB}.DefaultBuild|x64.ActiveCfg = DefaultBuild
+		{DB1D3525-1ABF-438A-9701-1FF236CD92EB}.DefaultBuild|x64.Build.0 = DefaultBuild
+		{DB1D3525-1ABF-438A-9701-1FF236CD92EB}.DefaultBuild|x86.ActiveCfg = DefaultBuild
+		{DB1D3525-1ABF-438A-9701-1FF236CD92EB}.DefaultBuild|x86.Build.0 = DefaultBuild
+		{DB1D3525-1ABF-438A-9701-1FF236CD92EB}.Release|Any CPU.ActiveCfg = DefaultBuild
+		{DB1D3525-1ABF-438A-9701-1FF236CD92EB}.Release|Any CPU.Build.0 = DefaultBuild
+		{DB1D3525-1ABF-438A-9701-1FF236CD92EB}.Release|x64.ActiveCfg = DefaultBuild
+		{DB1D3525-1ABF-438A-9701-1FF236CD92EB}.Release|x64.Build.0 = DefaultBuild
+		{DB1D3525-1ABF-438A-9701-1FF236CD92EB}.Release|x86.ActiveCfg = DefaultBuild
+		{DB1D3525-1ABF-438A-9701-1FF236CD92EB}.Release|x86.Build.0 = DefaultBuild
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {74B759A3-B0D7-4F62-82A3-99686DEE3DF9}
+	EndGlobalSection
+EndGlobal
