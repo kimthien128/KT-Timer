@@ -26,5 +26,8 @@
 - Các chức năng liên quan đến việc "kiểm tra sự tồn tại của 1 hình ảnh trên màn hình", như chức năng "Click Button" hoặc chức năng "Check Condition" có khả năng phát sinh lỗi "Không tìm thấy hình ảnh". Điều này có thể do màn hình của bạn thay đổi độ phân giải, hoặc 1 trang web, 1 phần mềm nào đó thay đổi giao diện, thay đổi tỉ lệ thu/phóng (zoom), khiến cho hình ảnh cần tìm kiếm không còn đúng với kích thước ban đầu, từ đó dẫn đến lỗi.
 - Nên tạo thêm 1 task dự phòng, hoặc sử dụng 1 phần mềm theo dõi máy tính từ xa để kiểm tra chắc chắn mọi nhiệm vụ được thực hiện, đặc biệt là các nhiệm vụ trước khi đến bước "tắt máy". Vì nếu 1 step nào đó bị dừng, các step sau sẽ không thực thi.
 
+#### 📥 How to Download
+1. Tải file cài đặt từ mục **Release**
+
 #### 🔗 Feedback
 - mailto: kimthien128@gmail.com
