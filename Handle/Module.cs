@@ -76,7 +76,34 @@ namespace KT_Timer_App
             }
             return result;
         }
-        
+
+        //hàm chuyển đổi định dạng byte sang kiểu dung lượng cao hơn
+        public string FormatFileSize(long sizeInBytes)
+        {
+            string[] sizeUnits = { "B", "KB", "MB", "GB", "TB" };
+            double size = sizeInBytes;
+            int unitIndex = 0;
+            while(size>=1024 && unitIndex < sizeUnits.Length - 1)
+            {
+                size /= 1024;
+                unitIndex++;
+            }
+            return $"{size:0.##} {sizeUnits[unitIndex]}";
+        }
+
+        //hàm so sánh version
+        public bool IsNewVersionAvailable(string currentVersion, string apiVersion)
+        {
+            Version currVer = new Version(currentVersion);
+
+            // Loại bỏ tiền tố "v"
+            apiVersion = (apiVersion.StartsWith("v") || apiVersion.StartsWith("V")) ? apiVersion.Substring(1) : apiVersion;
+            Version apiVer = new Version(apiVersion);
+            
+            return apiVer > currVer;
+        }
+
+
     }
 
 }

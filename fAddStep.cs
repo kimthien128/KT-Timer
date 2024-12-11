@@ -536,7 +536,7 @@ namespace KT_Timer_App
                     actionType = new ActionType
                     {
                         Type = ActionType.TypeAction.RunCommand,
-                        Command = "shutdown -s -t 0",
+                        Command = "shutdown -s -t 1",
                         TaskID = taskID
                     };
                     contentAction = "Shutdown computer";

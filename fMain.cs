@@ -107,13 +107,15 @@ namespace KT_Timer_App
         private void timerLbTimeNow_Tick(object sender, EventArgs e)
         {
             lbTimeNow.Text = DateTime.Now.ToString("dd/MM/yyyy | HH:mm:ss");
-
+            //txbTaskName.Text = module.minStartDateTime.ToString();
             //cập nhật cho task bar
-            if(notifyIcon1.Visible)
+            if (notifyIcon1.Visible)
             {
                 if (module.minStartDateTime == DateTime.MaxValue)
                     notifyIcon1.Text = "Empty task...";
-                //else // đoạn này cho vào sau khi xong task thì chạy 1 lần thôi, chứ để đây chạy mỗi giây quá tốn
+                else
+                    //cập nhật cho task bar
+                    notifyIcon1.Text = "Next task : " + module.minStartDateTime.ToString("HH:mm:ss");
                     
             }    
 
@@ -138,9 +140,6 @@ namespace KT_Timer_App
 
                             //set lại minStartDateTime mới
                             module.SetMinStartDateTime();
-                            
-                            //cập nhật cho task bar
-                            notifyIcon1.Text = "Next task : " + module.minStartDateTime.ToString("HH:mm:ss");
 
                             //chạy xong thì lưu data
                             dataHandle.WriteData(module.Tasks);

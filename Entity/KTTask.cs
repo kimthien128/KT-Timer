@@ -560,8 +560,10 @@ namespace KT_Timer_App
         private void CbRepeat_CheckedChanged(object sender, EventArgs e)
         {
             Repeat = cbRepeat.Checked;
-
-            logHandle.AddLog(ID, $"Set Repeat everyday = {cbRepeat.Checked}");
+            if(Repeat)
+                logHandle.AddLog(ID, $"Set Repeat everyday");
+            else
+                logHandle.AddLog(ID, $"No Repeat");
 
             //thay đổi xong thì lưu data
             dataHandle.WriteData(module.Tasks);

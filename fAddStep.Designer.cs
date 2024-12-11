@@ -464,7 +464,7 @@
             this.txbCommand.Name = "txbCommand";
             this.txbCommand.Size = new System.Drawing.Size(360, 23);
             this.txbCommand.TabIndex = 18;
-            this.txbCommand.Text = "ping ktstudio.vn";
+            this.txbCommand.Text = "ping google.com";
             // 
             // rbtnShutdown
             // 
@@ -606,7 +606,7 @@
             this.kryptonLabel18.Name = "kryptonLabel18";
             this.kryptonLabel18.Size = new System.Drawing.Size(29, 20);
             this.kryptonLabel18.TabIndex = 39;
-            this.kryptonLabel18.Values.Text = "Y =";
+            this.kryptonLabel18.Values.Text = "Y +";
             // 
             // nudY
             // 
@@ -631,7 +631,7 @@
             this.kryptonLabel17.Name = "kryptonLabel17";
             this.kryptonLabel17.Size = new System.Drawing.Size(30, 20);
             this.kryptonLabel17.TabIndex = 37;
-            this.kryptonLabel17.Values.Text = "X =";
+            this.kryptonLabel17.Values.Text = "X +";
             // 
             // nudX
             // 

@@ -24,8 +24,8 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>3</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.1.0</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -53,7 +53,7 @@
     <StartupObject>KT_Timer_App.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>logo-KT-Studio-Yellow-06.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\logo-KT-Studio-Yellow-06.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>55A0EAEA35CCB6DB232803116451BB49797B0591</ManifestCertificateThumbprint>
@@ -290,7 +290,9 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="logo-KT-Studio-Yellow-06.ico" />
+    <Content Include="Resources\logo-KT-Studio-Yellow-06.ico" />
+    <None Include="Resources\kofi2.png" />
+    <None Include="Resources\2024-12-10 19.21.jpg" />
     <None Include="Resources\icons8_edit_80px.png" />
     <None Include="Resources\QR Sacombank.jpg" />
     <None Include="Resources\icons8_closed_eye_96px.png" />

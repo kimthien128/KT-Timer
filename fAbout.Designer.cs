@@ -33,20 +33,23 @@
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.pnContainer = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.kryptonLabel8 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel7 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.kryptonLabel6 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel8 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel5 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel4 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.lbVersion = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel3 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.lbMessage = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.pbLogo = new System.Windows.Forms.PictureBox();
             this.btnCheckUpdate = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.pbBuyMeACoffee = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbLogo = new System.Windows.Forms.PictureBox();
             this.pnContainer.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBuyMeACoffee)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
@@ -73,7 +76,7 @@
             this.pnContainer.Controls.Add(this.panel1);
             this.pnContainer.Controls.Add(this.kryptonLabel5);
             this.pnContainer.Controls.Add(this.kryptonLabel1);
-            this.pnContainer.Controls.Add(this.kryptonLabel4);
+            this.pnContainer.Controls.Add(this.lbVersion);
             this.pnContainer.Controls.Add(this.kryptonLabel3);
             this.pnContainer.Controls.Add(this.kryptonLabel2);
             this.pnContainer.Controls.Add(this.lbMessage);
@@ -88,53 +91,35 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.kryptonLabel8);
-            this.panel1.Controls.Add(this.kryptonLabel7);
-            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.pbBuyMeACoffee);
             this.panel1.Controls.Add(this.kryptonLabel6);
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.kryptonLabel8);
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(20, 344);
+            this.panel1.Location = new System.Drawing.Point(20, 329);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(10);
-            this.panel1.Size = new System.Drawing.Size(484, 137);
+            this.panel1.Size = new System.Drawing.Size(484, 152);
             this.panel1.TabIndex = 14;
-            // 
-            // kryptonLabel8
-            // 
-            this.kryptonLabel8.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicControl;
-            this.kryptonLabel8.Location = new System.Drawing.Point(34, 88);
-            this.kryptonLabel8.Name = "kryptonLabel8";
-            this.kryptonLabel8.Size = new System.Drawing.Size(275, 20);
-            this.kryptonLabel8.TabIndex = 17;
-            this.kryptonLabel8.Values.Text = "Sacombank - 050142665058 - Nguyen Kim Thien";
-            // 
-            // kryptonLabel7
-            // 
-            this.kryptonLabel7.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicControl;
-            this.kryptonLabel7.Location = new System.Drawing.Point(35, 62);
-            this.kryptonLabel7.Name = "kryptonLabel7";
-            this.kryptonLabel7.Size = new System.Drawing.Size(273, 20);
-            this.kryptonLabel7.TabIndex = 16;
-            this.kryptonLabel7.Values.Text = "làm thêm các sản phẩm tiện ích khác nhé, yêu !!!";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(345, 18);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 106);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 15;
-            this.pictureBox1.TabStop = false;
             // 
             // kryptonLabel6
             // 
-            this.kryptonLabel6.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicControl;
-            this.kryptonLabel6.Location = new System.Drawing.Point(74, 36);
+            this.kryptonLabel6.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
+            this.kryptonLabel6.Location = new System.Drawing.Point(252, 7);
             this.kryptonLabel6.Name = "kryptonLabel6";
-            this.kryptonLabel6.Size = new System.Drawing.Size(195, 20);
-            this.kryptonLabel6.TabIndex = 14;
-            this.kryptonLabel6.Values.Text = "Donate 1 ly coffee để ủng hộ team";
+            this.kryptonLabel6.Size = new System.Drawing.Size(49, 20);
+            this.kryptonLabel6.TabIndex = 19;
+            this.kryptonLabel6.Values.Text = "Momo";
+            // 
+            // kryptonLabel8
+            // 
+            this.kryptonLabel8.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
+            this.kryptonLabel8.Location = new System.Drawing.Point(366, 7);
+            this.kryptonLabel8.Name = "kryptonLabel8";
+            this.kryptonLabel8.Size = new System.Drawing.Size(78, 20);
+            this.kryptonLabel8.TabIndex = 17;
+            this.kryptonLabel8.Values.Text = "Sacombank";
             // 
             // kryptonLabel5
             // 
@@ -154,14 +139,14 @@
             this.kryptonLabel1.TabIndex = 8;
             this.kryptonLabel1.Values.Text = "KT Group - Hệ thống cung cấp đa dạng sản phẩm số";
             // 
-            // kryptonLabel4
+            // lbVersion
             // 
-            this.kryptonLabel4.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.kryptonLabel4.Location = new System.Drawing.Point(229, 134);
-            this.kryptonLabel4.Name = "kryptonLabel4";
-            this.kryptonLabel4.Size = new System.Drawing.Size(84, 20);
-            this.kryptonLabel4.TabIndex = 7;
-            this.kryptonLabel4.Values.Text = "v1.0.0 (beta)";
+            this.lbVersion.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
+            this.lbVersion.Location = new System.Drawing.Point(246, 135);
+            this.lbVersion.Name = "lbVersion";
+            this.lbVersion.Size = new System.Drawing.Size(45, 20);
+            this.lbVersion.TabIndex = 7;
+            this.lbVersion.Values.Text = "v1.0.1";
             // 
             // kryptonLabel3
             // 
@@ -187,6 +172,48 @@
             this.lbMessage.TabIndex = 3;
             this.lbMessage.Values.Text = "";
             // 
+            // btnCheckUpdate
+            // 
+            this.btnCheckUpdate.Location = new System.Drawing.Point(199, 274);
+            this.btnCheckUpdate.Name = "btnCheckUpdate";
+            this.btnCheckUpdate.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleOrange;
+            this.btnCheckUpdate.Size = new System.Drawing.Size(144, 46);
+            this.btnCheckUpdate.TabIndex = 1;
+            this.btnCheckUpdate.Values.Text = "Check for update";
+            this.btnCheckUpdate.Click += new System.EventHandler(this.btnCheckUpdate_Click);
+            // 
+            // pbBuyMeACoffee
+            // 
+            this.pbBuyMeACoffee.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbBuyMeACoffee.Image = global::KT_Timer_App.Properties.Resources.kofi2;
+            this.pbBuyMeACoffee.Location = new System.Drawing.Point(31, 69);
+            this.pbBuyMeACoffee.Name = "pbBuyMeACoffee";
+            this.pbBuyMeACoffee.Size = new System.Drawing.Size(167, 40);
+            this.pbBuyMeACoffee.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbBuyMeACoffee.TabIndex = 20;
+            this.pbBuyMeACoffee.TabStop = false;
+            this.pbBuyMeACoffee.Click += new System.EventHandler(this.pbBuyMeACoffee_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::KT_Timer_App.Properties.Resources.QR_Momo;
+            this.pictureBox2.Location = new System.Drawing.Point(226, 35);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(100, 106);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 18;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(355, 35);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 106);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
+            // 
             // pbLogo
             // 
             this.pbLogo.Image = global::KT_Timer_App.Properties.Resources.logo_KT_Studio_Yellow_05;
@@ -196,16 +223,6 @@
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbLogo.TabIndex = 2;
             this.pbLogo.TabStop = false;
-            // 
-            // btnCheckUpdate
-            // 
-            this.btnCheckUpdate.Location = new System.Drawing.Point(199, 277);
-            this.btnCheckUpdate.Name = "btnCheckUpdate";
-            this.btnCheckUpdate.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleOrange;
-            this.btnCheckUpdate.Size = new System.Drawing.Size(144, 46);
-            this.btnCheckUpdate.TabIndex = 1;
-            this.btnCheckUpdate.Values.Text = "Check for update";
-            this.btnCheckUpdate.Click += new System.EventHandler(this.btnCheckUpdate_Click);
             // 
             // fAbout
             // 
@@ -227,6 +244,8 @@
             this.pnContainer.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBuyMeACoffee)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.ResumeLayout(false);
@@ -239,7 +258,7 @@
         private System.Windows.Forms.Panel pnContainer;
         private System.Windows.Forms.PictureBox pbLogo;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnCheckUpdate;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel4;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel lbVersion;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel3;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel2;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel lbMessage;
@@ -247,8 +266,9 @@
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel5;
         private System.Windows.Forms.Panel panel1;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel8;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel7;
         private System.Windows.Forms.PictureBox pictureBox1;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel6;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pbBuyMeACoffee;
     }
 }

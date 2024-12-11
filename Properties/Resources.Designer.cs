@@ -133,6 +133,16 @@ namespace KT_Timer_App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap kofi2 {
+            get {
+                object obj = ResourceManager.GetObject("kofi2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logo_KT_Studio_Yellow_05 {
             get {
                 object obj = ResourceManager.GetObject("logo KT Studio Yellow-05", resourceCulture);
@@ -146,6 +156,16 @@ namespace KT_Timer_App.Properties {
         internal static System.Drawing.Bitmap logo_KT_Studio_Yellow_06 {
             get {
                 object obj = ResourceManager.GetObject("logo_KT_Studio_Yellow_06", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap QR_Momo {
+            get {
+                object obj = ResourceManager.GetObject("QR_Momo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
