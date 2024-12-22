@@ -7,7 +7,7 @@
 
 ![Main](https://github.com/user-attachments/assets/a01d522a-95d4-4ecb-9ab9-24f08b7146b2)
 
-#### ✨ New Features
+#### ✨ Features
 - **Hẹn giờ mở phần mềm**: Tự động mở các ứng dụng, phần mềm vào thời gian bạn chỉ định, giúp bạn chuẩn bị cho công việc mà không cần can thiệp thủ công.
 - **Hẹn giờ tắt phần mềm**: Đặt lịch để tự động đóng các phần mềm khi không còn cần thiết, giúp giải phóng tài nguyên hệ thống và tiết kiệm năng lượng.
 - **Mô phỏng thao tác chuột và bàn phím**: Hẹn giờ để phần mềm tự động click vào một vị trí (một hình ảnh, 1 nút bấm) trên màn hình hoặc nhấn các phím cụ thể, bao gồm cả các tổ hợp phím (tối đa 3 phím).
@@ -24,6 +24,9 @@
 - Có hiện tượng tự động đóng phần mềm, khả năng xung đột trong xử lý IO từ máy tính (hiện tại chưa khắc phục được - 12/2024).
 - Các chức năng liên quan đến việc "kiểm tra sự tồn tại của 1 hình ảnh trên màn hình", như chức năng "Click Button" hoặc chức năng "Check Condition" có khả năng phát sinh lỗi "Không tìm thấy hình ảnh". Điều này có thể do màn hình của bạn thay đổi độ phân giải, hoặc 1 trang web, 1 phần mềm nào đó thay đổi giao diện, thay đổi tỉ lệ thu/phóng (zoom), khiến cho hình ảnh cần tìm kiếm không còn đúng với kích thước ban đầu, từ đó dẫn đến lỗi.
 - Nên tạo thêm 1 task dự phòng, hoặc sử dụng 1 phần mềm theo dõi máy tính từ xa để kiểm tra chắc chắn mọi nhiệm vụ được thực hiện, đặc biệt là các nhiệm vụ trước khi đến bước "tắt máy". Vì nếu 1 step nào đó bị dừng, các step sau sẽ không thực thi.
+
+#### 🚀 Usage
+...đang cập nhật...
 
 #### 📥 How to Download
 1. Tải file cài đặt từ mục **Release**
