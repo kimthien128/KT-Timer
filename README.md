@@ -18,7 +18,6 @@
 #### ✅ Ưu điểm
 - Các tác vụ lặp đi lặp lại sẽ được thực hiện tự động mà không cần bạn phải can thiệp.
 - VD: Khi thực hiện chấm công vào làm: bạn có thể thực hiện 1 chuỗi các thao tác chấm công, mở phần mềm sẵn, đăng nhập các tài khoản mạng xã hội,... Bây giờ bạn chỉ cần mở máy và bật KT Timer lên, sau đó đi lấy 1 tách cà phê, lúc trở về bàn làm việc thì mọi thứ đã sẵn sàng ☕
-- VD: Nếu 5h bạn ra về, nhưng 4h30 bạn đã xong hết công việc, mà bạn vẫn phải đợi chấm công 😈 bạn biết cần phải làm gì rồi chứ
 
 #### ❌ Nhược điểm
 - Có hiện tượng tự động đóng phần mềm, khả năng xung đột trong xử lý IO từ máy tính (hiện tại chưa khắc phục được - 12/2024).
