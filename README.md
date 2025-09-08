@@ -5,8 +5,10 @@
 
 **KT Timer** là một tool tự động hóa các tác vụ và nhiệm vụ trên máy tính của bạn. Với khả năng hẹn giờ và lập lịch cho các hành động tự động, phần mềm này giúp tiết kiệm thời gian và công sức bằng cách giúp bạn thực hiện các nhiệm vụ mà bạn phải làm mỗi ngày, hoặc 1 chuỗi các thao tác lặp lại thường xuyên.
 
-![Main](https://github.com/user-attachments/assets/a01d522a-95d4-4ecb-9ab9-24f08b7146b2)
-<img width="785" height="683" alt="image" src="https://github.com/user-attachments/assets/01d78b40-40ee-4762-b698-710f352bc13b" />
+<img width="850" height="620" alt="image" src="https://github.com/user-attachments/assets/e439f457-94d1-4633-bd4a-88f6ab77c6a1" />
+<img width="850" height="620" alt="image" src="https://github.com/user-attachments/assets/2f0372f6-0827-438f-9095-8eafbf111743" />
+<img width="867" height="696" alt="image" src="https://github.com/user-attachments/assets/81d3de5c-05bf-4507-b72d-eb43bdf7507a" />
+<img width="403" height="203" alt="image" src="https://github.com/user-attachments/assets/71454341-74f6-4520-b9dc-d7daa77c4dff" />
 
 #### ✨ Features
 - **Hẹn giờ mở phần mềm**: Tự động mở các ứng dụng, phần mềm vào thời gian bạn chỉ định, giúp bạn chuẩn bị cho công việc mà không cần can thiệp thủ công.
