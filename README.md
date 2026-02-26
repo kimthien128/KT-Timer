@@ -22,9 +22,6 @@
 - Nếu 1 step nào đó bị dừng vì phát sinh lỗi, các step sau sẽ không thực thi.
 - Phần mềm có thể thực thi không chính xác 100%, không nên phụ thuộc hoàn toàn.
 
-#### 🚀 Usage
-...đang cập nhật...
-
 #### 📥 How to Download
 1. Tải file cài đặt từ mục **Release**
 
