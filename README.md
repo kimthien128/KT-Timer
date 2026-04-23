@@ -23,7 +23,7 @@
 - Phần mềm có thể thực thi không chính xác 100%, không nên phụ thuộc hoàn toàn.
 
 #### 📥 How to Download
-1. Tải file cài đặt từ mục **Release**
+1. Tải file cài đặt từ mục **[Release](https://github.com/kimthien128/KT-Timer/releases)**
 
 #### 🔗 Feedback
 - mailto: kimthien128@gmail.com
